@@ -1,0 +1,687 @@
+<html lang="zh" data-hairline="true" data-theme="light">
+
+<head>
+  <meta charset="utf-8">
+  <title>WWDC19 发布的 Sidecar 副屏功能好用吗？ - 知乎</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="google-site-verification" content="FTeR0c8arOPKh8c5DYh_9uu98_zJbaWw53J-Sch9MTg">
+  <meta data-react-helmet="true" name="description" property="og:description"
+    content="屹峰 的回答已经有实际使用体验了，快去看。Sidecar 效果图Sidecar 是这次 WWDC2019 带来的一大亮点。简…">
+  <link rel="shortcut icon" type="image/x-icon" href="https://static.zhihu.com/static/favicon.ico">
+  <link rel="search" type="application/opensearchdescription+xml" href="https://static.zhihu.com/static/search.xml"
+    title="知乎">
+  <link rel="dns-prefetch" href="//static.zhimg.com">
+  <link rel="dns-prefetch" href="//pic1.zhimg.com">
+  <link rel="dns-prefetch" href="//pic2.zhimg.com">
+  <link rel="dns-prefetch" href="//pic3.zhimg.com">
+  <link rel="dns-prefetch" href="//pic4.zhimg.com">
+  <link href="https://static.zhihu.com/heifetz/app.10c00fa8b31bee13e93d.css" rel="stylesheet">
+  <link href="https://static.zhihu.com/heifetz/question-routes.904608814db3a54f1f5b.css" rel="stylesheet">
+  <script defer="" crossorigin="anonymous" src="https://unpkg.zhimg.com/@cfe/sentry-script@latest/dist/init.js"
+    data-sentry-config="{&quot;dsn&quot;:&quot;https://65e244586890460588f00f2987137aa8@crash2.zhihu.com/193&quot;,&quot;sampleRate&quot;:0.1,&quot;release&quot;:&quot;1632-0997da6c&quot;,&quot;ignoreErrorNames&quot;:[&quot;NetworkError&quot;,&quot;SecurityError&quot;],&quot;ignoreErrors&quot;:[&quot;origin message&quot;,&quot;Network request failed&quot;,&quot;Loading chunk&quot;,&quot;这个系统不支持该功能。&quot;,&quot;Can't find variable: webkit&quot;,&quot;Can't find variable: $&quot;,&quot;内存不足&quot;,&quot;out of memory&quot;,&quot;DOM Exception 18&quot;,&quot;The operation is insecure&quot;,&quot;[object Event]&quot;,&quot;[object FileError]&quot;,&quot;[object DOMError]&quot;,&quot;[object Object]&quot;,&quot;拒绝访问。&quot;,&quot;Maximum call stack size exceeded&quot;,&quot;UploadError&quot;,&quot;无法 fetch&quot;,&quot;draft-js&quot;,&quot;缺少 JavaScript 对象&quot;,&quot;componentWillEnter&quot;,&quot;componentWillLeave&quot;,&quot;componentWillAppear&quot;,&quot;getInlineStyleAt&quot;,&quot;getCharacterList&quot;],&quot;whitelistUrls&quot;:[&quot;static.zhihu.com&quot;]}"></script>
+  <link rel="stylesheet" type="text/css" href="https://static.zhihu.com/heifetz/richinput.0972654fb2db1105fe5e.css">
+  <script charset="utf-8" src="https://static.zhihu.com/heifetz/main.richinput.3ea3cb1a084c981bc7ec.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://static.zhihu.com/heifetz/modals.c5c29d8da43d55466fd5.css">
+  <script charset="utf-8" src="https://static.zhihu.com/heifetz/main.modals.7365116fb32f7ae0bbbf.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://static.zhihu.com/heifetz/signflow.0547812679d688e4e3ca.css">
+  <script charset="utf-8" src="https://static.zhihu.com/heifetz/main.signflow.75cd57d9b27aad2e9586.js"></script>
+</head>
+
+<body class="Entry-body Body--isAppleDevice">
+  <div id="root">
+    <div data-zop-usertoken="{}">
+      <div class="LoadingBar is-active"></div>
+      <div>
+        <header role="banner" class="Sticky AppHeader" data-za-module="TopNavBar">
+          <div class="AppHeader-inner"><a href="//www.zhihu.com" aria-label="知乎"><svg viewBox="0 0 200 91"
+                class="Icon ZhihuLogo ZhihuLogo--blue Icon--logo" width="64" height="30" aria-hidden="true"
+                style="height: 30px; width: 64px;">
+                <title></title>
+                <g>
+                  <path
+                    d="M53.29 80.035l7.32.002 2.41 8.24 13.128-8.24h15.477v-67.98H53.29v67.978zm7.79-60.598h22.756v53.22h-8.73l-8.718 5.473-1.587-5.46-3.72-.012v-53.22zM46.818 43.162h-16.35c.545-8.467.687-16.12.687-22.955h15.987s.615-7.05-2.68-6.97H16.807c1.09-4.1 2.46-8.332 4.1-12.708 0 0-7.523 0-10.085 6.74-1.06 2.78-4.128 13.48-9.592 24.41 1.84-.2 7.927-.37 11.512-6.94.66-1.84.785-2.08 1.605-4.54h9.02c0 3.28-.374 20.9-.526 22.95H6.51c-3.67 0-4.863 7.38-4.863 7.38H22.14C20.765 66.11 13.385 79.24 0 89.62c6.403 1.828 12.784-.29 15.937-3.094 0 0 7.182-6.53 11.12-21.64L43.92 85.18s2.473-8.402-.388-12.496c-2.37-2.788-8.768-10.33-11.496-13.064l-4.57 3.627c1.363-4.368 2.183-8.61 2.46-12.71H49.19s-.027-7.38-2.372-7.38zm128.752-.502c6.51-8.013 14.054-18.302 14.054-18.302s-5.827-4.625-8.556-1.27c-1.874 2.548-11.51 15.063-11.51 15.063l6.012 4.51zm-46.903-18.462c-2.814-2.577-8.096.667-8.096.667s12.35 17.2 12.85 17.953l6.08-4.29s-8.02-11.752-10.83-14.33zM199.99 46.5c-6.18 0-40.908.292-40.953.292v-31.56c1.503 0 3.882-.124 7.14-.376 12.773-.753 21.914-1.25 27.427-1.504 0 0 3.817-8.496-.185-10.45-.96-.37-7.24 1.43-7.24 1.43s-51.63 5.153-72.61 5.64c.5 2.756 2.38 5.336 4.93 6.11 4.16 1.087 7.09.53 15.36.277 7.76-.5 13.65-.76 17.66-.76v31.19h-41.71s.88 6.97 7.97 7.14h33.73v22.16c0 4.364-3.498 6.87-7.65 6.6-4.4.034-8.15-.36-13.027-.566.623 1.24 1.977 4.496 6.035 6.824 3.087 1.502 5.054 2.053 8.13 2.053 9.237 0 14.27-5.4 14.027-14.16V53.93h38.235c3.026 0 2.72-7.432 2.72-7.432z"
+                    fill-rule="evenodd"></path>
+                </g>
+              </svg></a>
+            <ul role="navigation" class="Tabs AppHeader-Tabs">
+              <li role="tab" class="Tabs-item AppHeader-Tab Tabs-item--noMeta"><a class="Tabs-link AppHeader-TabsLink"
+                  href="//www.zhihu.com/" data-za-not-track-link="true">首页</a></li>
+              <li role="tab" class="Tabs-item AppHeader-Tab Tabs-item--noMeta"><a class="Tabs-link AppHeader-TabsLink"
+                  href="//www.zhihu.com/explore" data-za-not-track-link="true">发现</a></li>
+              <li role="tab" class="Tabs-item AppHeader-Tab Tabs-item--noMeta"><a class="Tabs-link AppHeader-TabsLink"
+                  href="//www.zhihu.com/topic" data-za-not-track-link="true">话题</a></li>
+            </ul>
+            <div class="SearchBar" role="search" data-za-module="PresetWordItem">
+              <div class="SearchBar-toolWrapper">
+                <form class="SearchBar-tool">
+                  <div>
+                    <div class="Popover">
+                      <div class="SearchBar-input Input-wrapper Input-wrapper--grey"><input type="text" maxlength="100"
+                          autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list"
+                          aria-activedescendant="AutoComplete4--1" id="Popover3-toggle" aria-haspopup="true"
+                          aria-owns="Popover3-content" class="Input" placeholder="90 后孙宇晨拍下巴菲特午餐" value="">
+                        <div class="Input-after"><button aria-label="搜索" type="button"
+                            class="Button SearchBar-searchIcon Button--primary"><span
+                              style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--Search"
+                                fill="currentColor" viewBox="0 0 24 24" width="18" height="18">
+                                <path
+                                  d="M17.068 15.58a8.377 8.377 0 0 0 1.774-5.159 8.421 8.421 0 1 0-8.42 8.421 8.38 8.38 0 0 0 5.158-1.774l3.879 3.88c.957.573 2.131-.464 1.488-1.49l-3.879-3.878zm-6.647 1.157a6.323 6.323 0 0 1-6.316-6.316 6.323 6.323 0 0 1 6.316-6.316 6.323 6.323 0 0 1 6.316 6.316 6.323 6.323 0 0 1-6.316 6.316z"
+                                  fill-rule="evenodd"></path>
+                              </svg></span></button></div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="AppHeader-userInfo">
+              <div class="AppHeader-profile">
+                <div><button type="button" class="Button AppHeader-login Button--blue">登录</button><button type="button"
+                    class="Button Button--primary Button--blue">加入知乎</button></div>
+              </div>
+            </div>
+          </div>
+          <div class="PageHeader">
+            <div class="QuestionHeader-content">
+              <div class="QuestionHeader-main">
+                <h1 class="QuestionHeader-title">WWDC19 发布的 Sidecar 副屏功能好用吗？</h1>
+              </div>
+              <div class="QuestionHeader-side">
+                <div class="QuestionButtonGroup"><button type="button"
+                    class="Button FollowButton Button--primary Button--blue">关注问题</button><button type="button"
+                    class="Button Button--blue"><svg viewBox="0 0 12 12"
+                      class="Icon QuestionButton-icon Button-icon Icon--modify" width="14" height="16"
+                      aria-hidden="true" style="height: 16px; width: 14px;">
+                      <title></title>
+                      <g>
+                        <path
+                          d="M.423 10.32L0 12l1.667-.474 1.55-.44-2.4-2.33-.394 1.564zM10.153.233c-.327-.318-.85-.31-1.17.018l-.793.817 2.49 2.414.792-.814c.318-.328.312-.852-.017-1.17l-1.3-1.263zM3.84 10.536L1.35 8.122l6.265-6.46 2.49 2.414-6.265 6.46z"
+                          fill-rule="evenodd"></path>
+                      </g>
+                    </svg>写回答</button></div>
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
+      <main role="main" class="App-main">
+        <div class="QuestionPage" itemscope="" itemtype="http://schema.org/Question">
+          <meta itemprop="name" content="WWDC19 发布的 Sidecar 副屏功能好用吗？">
+          <meta itemprop="url" content="https://www.zhihu.com/question/327780925">
+          <meta itemprop="keywords" content="macOS,iPad,功能,WWDC">
+          <meta itemprop="answerCount" content="6">
+          <meta itemprop="commentCount" content="0">
+          <meta itemprop="dateCreated" content="2019-06-04T02:01:51.000Z">
+          <meta itemprop="dateModified" content="2019-06-04T02:01:51.000Z">
+          <meta itemprop="zhihu:visitsCount">
+          <meta itemprop="zhihu:followerCount" content="32">
+          <script type="application/ld+json">
+        {
+          "@context": "https://ziyuan.baidu.com/contexts/cambrian.jsonld",
+          "@id": "https://www.zhihu.com/question/327780925/answer/704644555",
+          "appid": "否",
+          "pubDate": "2019-06-04T10:03:35",
+          "upDate": "2019-06-05T11:03:58"
+        }</script>
+          <div
+            data-zop-question="{&quot;title&quot;:&quot;WWDC19 发布的 Sidecar 副屏功能好用吗？&quot;,&quot;topics&quot;:[{&quot;name&quot;:&quot;macOS&quot;,&quot;id&quot;:&quot;19550290&quot;},{&quot;name&quot;:&quot;iPad&quot;,&quot;id&quot;:&quot;19550297&quot;},{&quot;name&quot;:&quot;功能&quot;,&quot;id&quot;:&quot;19552136&quot;},{&quot;name&quot;:&quot;WWDC&quot;,&quot;id&quot;:&quot;19557947&quot;}],&quot;id&quot;:327780925,&quot;isEditable&quot;:false}">
+            <div class="QuestionStatus"></div>
+            <div class="QuestionHeader">
+              <div class="QuestionHeader-content">
+                <div class="QuestionHeader-main">
+                  <div class="QuestionHeader-tags">
+                    <div class="QuestionHeader-topics">
+                      <div class="Tag QuestionTopic"><span class="Tag-content"><a class="TopicLink"
+                            href="//www.zhihu.com/topic/19550290" target="_blank">
+                            <div class="Popover">
+                              <div id="Popover5-toggle" aria-haspopup="true" aria-expanded="false"
+                                aria-owns="Popover5-content">macOS</div>
+                            </div>
+                          </a></span></div>
+                      <div class="Tag QuestionTopic"><span class="Tag-content"><a class="TopicLink"
+                            href="//www.zhihu.com/topic/19550297" target="_blank">
+                            <div class="Popover">
+                              <div id="Popover6-toggle" aria-haspopup="true" aria-expanded="false"
+                                aria-owns="Popover6-content">iPad</div>
+                            </div>
+                          </a></span></div>
+                      <div class="Tag QuestionTopic"><span class="Tag-content"><a class="TopicLink"
+                            href="//www.zhihu.com/topic/19552136" target="_blank">
+                            <div class="Popover">
+                              <div id="Popover7-toggle" aria-haspopup="true" aria-expanded="false"
+                                aria-owns="Popover7-content">功能</div>
+                            </div>
+                          </a></span></div>
+                      <div class="Tag QuestionTopic"><span class="Tag-content"><a class="TopicLink"
+                            href="//www.zhihu.com/topic/19557947" target="_blank">
+                            <div class="Popover">
+                              <div id="Popover8-toggle" aria-haspopup="true" aria-expanded="false"
+                                aria-owns="Popover8-content">WWDC</div>
+                            </div>
+                          </a></span></div>
+                    </div>
+                  </div>
+                  <h1 class="QuestionHeader-title">WWDC19 发布的 Sidecar 副屏功能好用吗？</h1>
+                  <div>
+                    <div class="QuestionHeader-detail">
+                      <div class="QuestionRichText QuestionRichText--expandable QuestionRichText--collapsed">
+                        <div><span class="RichText ztext" itemprop="text">（iPad作为Mac副屏的功能） 类似Duet Display和Luna
+                            Display的功能。…</span><button type="button"
+                            class="Button QuestionRichText-more Button--plain">显示全部<svg viewBox="0 0 10 6"
+                              class="Icon QuestionRichText-more-icon Icon--arrow" width="10" height="16"
+                              aria-hidden="true" style="height: 16px; width: 10px;">
+                              <title></title>
+                              <g>
+                                <path
+                                  d="M8.716.217L5.002 4 1.285.218C.99-.072.514-.072.22.218c-.294.29-.294.76 0 1.052l4.25 4.512c.292.29.77.29 1.063 0L9.78 1.27c.293-.29.293-.76 0-1.052-.295-.29-.77-.29-1.063 0z">
+                                </path>
+                              </g>
+                            </svg></button></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="QuestionHeader-side">
+                  <div class="QuestionHeader-follow-status">
+                    <div class="QuestionFollowStatus">
+                      <div class="NumberBoard QuestionFollowStatus-counts NumberBoard--divider">
+                        <div class="NumberBoard-item">
+                          <div class="NumberBoard-itemInner">
+                            <div class="NumberBoard-itemName">关注者</div><strong class="NumberBoard-itemValue"
+                              title="32">32</strong>
+                          </div>
+                        </div>
+                        <div class="NumberBoard-item">
+                          <div class="NumberBoard-itemInner">
+                            <div class="NumberBoard-itemName">被浏览</div><strong class="NumberBoard-itemValue"
+                              title="7687">7,687</strong>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="QuestionHeader-footer">
+                <div class="QuestionHeader-footer-inner">
+                  <div class="QuestionHeader-main QuestionHeader-footer-main">
+                    <div class="QuestionButtonGroup"><button type="button"
+                        class="Button FollowButton Button--primary Button--blue">关注问题</button><button type="button"
+                        class="Button Button--blue"><svg viewBox="0 0 12 12"
+                          class="Icon QuestionButton-icon Button-icon Icon--modify" width="14" height="16"
+                          aria-hidden="true" style="height: 16px; width: 14px;">
+                          <title></title>
+                          <g>
+                            <path
+                              d="M.423 10.32L0 12l1.667-.474 1.55-.44-2.4-2.33-.394 1.564zM10.153.233c-.327-.318-.85-.31-1.17.018l-.793.817 2.49 2.414.792-.814c.318-.328.312-.852-.017-1.17l-1.3-1.263zM3.84 10.536L1.35 8.122l6.265-6.46 2.49 2.414-6.265 6.46z"
+                              fill-rule="evenodd"></path>
+                          </g>
+                        </svg>写回答</button></div>
+                    <div class="QuestionHeaderActions"><button type="button"
+                        class="Button Button--grey Button--withIcon Button--withLabel" style="margin-right: 16px;"><span
+                          style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--Invite Button-zi"
+                            fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em">
+                            <path
+                              d="M4 10V8a1 1 0 1 1 2 0v2h2a1 1 0 0 1 0 2H6v2a1 1 0 0 1-2 0v-2H2a1 1 0 0 1 0-2h2zm10.455 2c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm-7 6c0-2.66 4.845-4 7.272-4C17.155 14 22 15.34 22 18v1.375c0 .345-.28.625-.625.625H8.08a.625.625 0 0 1-.625-.625V18z"
+                              fill-rule="evenodd"></path>
+                          </svg></span>邀请回答</button>
+                      <div class="QuestionHeader-Comment"><button type="button"
+                          class="Button Button--plain Button--withIcon Button--withLabel"><span
+                            style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--Comment Button-zi"
+                              fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em">
+                              <path
+                                d="M10.241 19.313a.97.97 0 0 0-.77.2 7.908 7.908 0 0 1-3.772 1.482.409.409 0 0 1-.38-.637 5.825 5.825 0 0 0 1.11-2.237.605.605 0 0 0-.227-.59A7.935 7.935 0 0 1 3 11.25C3 6.7 7.03 3 12 3s9 3.7 9 8.25-4.373 9.108-10.759 8.063z"
+                                fill-rule="evenodd"></path>
+                            </svg></span>添加评论</button></div>
+                      <div class="Popover ShareMenu">
+                        <div class="ShareMenu-toggler" id="Popover9-toggle" aria-haspopup="true" aria-expanded="false"
+                          aria-owns="Popover9-content"><button type="button"
+                            class="Button Button--plain Button--withIcon Button--withLabel"><span
+                              style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--Share Button-zi"
+                                fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em">
+                                <path
+                                  d="M2.931 7.89c-1.067.24-1.275 1.669-.318 2.207l5.277 2.908 8.168-4.776c.25-.127.477.198.273.39L9.05 14.66l.927 5.953c.18 1.084 1.593 1.376 2.182.456l9.644-15.242c.584-.892-.212-2.029-1.234-1.796L2.93 7.89z"
+                                  fill-rule="evenodd"></path>
+                              </svg></span>分享</button></div>
+                      </div>
+                      <div class="Popover"><button aria-label="更多" type="button" id="Popover10-toggle"
+                          aria-haspopup="true" aria-expanded="false" aria-owns="Popover10-content"
+                          class="Button Button--plain Button--withIcon Button--iconOnly"><span
+                            style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--Dots Button-zi"
+                              fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em">
+                              <path
+                                d="M5 14a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
+                                fill-rule="evenodd"></path>
+                            </svg></span></button></div>
+                    </div>
+                    <div class="QuestionHeader-actions"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div class="Sticky"></div>
+              </div>
+            </div>
+          </div>
+          <div class="Question-main">
+            <div class="ListShortcut">
+              <div class="Question-mainColumn" data-zop-questionanswerlist="true">
+                <div class="Card ViewAll"><a class="QuestionMainAction ViewAll-QuestionMainAction"
+                    data-za-detail-view-element_name="ViewAll" href="/question/327780925">查看全部 6 个回答</a></div>
+                <div class="Card AnswerCard">
+                  <div class="QuestionAnswer-content" tabindex="0">
+                    <div class="ContentItem AnswerItem"
+                      data-zop="{&quot;authorName&quot;:&quot;知乎用户&quot;,&quot;itemId&quot;:704644555,&quot;title&quot;:&quot;WWDC19 发布的 Sidecar 副屏功能好用吗？&quot;,&quot;type&quot;:&quot;answer&quot;}"
+                      name="704644555" itemprop="mainEntityOfPage" itemtype="http://schema.org/Answer" itemscope="">
+                      <div class="ContentItem-meta">
+                        <div class="AuthorInfo AnswerItem-authorInfo AnswerItem-authorInfo--related" itemprop="author"
+                          itemscope="" itemtype="http://schema.org/Person">
+                          <meta itemprop="name" content="知乎用户">
+                          <meta itemprop="image" content="https://pic4.zhimg.com/da8e974dc_is.jpg">
+                          <meta itemprop="url" content="https://www.zhihu.com/people/">
+                          <meta itemprop="zhihu:followerCount"><span class="UserLink AuthorInfo-avatarWrapper"><img
+                              class="Avatar AuthorInfo-avatar" width="38" height="38"
+                              src="https://pic4.zhimg.com/da8e974dc_xs.jpg"
+                              srcset="https://pic4.zhimg.com/da8e974dc_l.jpg 2x" alt="知乎用户"></span>
+                          <div class="AuthorInfo-content">
+                            <div class="AuthorInfo-head"><span class="UserLink AuthorInfo-name">知乎用户</span></div>
+                            <div class="AuthorInfo-detail">
+                              <div class="AuthorInfo-badge"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="AnswerItem-extraInfo"><span class="Voters"><button type="button"
+                              class="Button Button--plain">8 人赞同了该回答</button></span></div>
+                      </div>
+                      <meta itemprop="image">
+                      <meta itemprop="upvoteCount" content="8">
+                      <meta itemprop="url" content="https://www.zhihu.com/question/327780925/answer/704644555">
+                      <meta itemprop="dateCreated" content="2019-06-04T02:03:35.000Z">
+                      <meta itemprop="dateModified" content="2019-06-05T03:03:58.000Z">
+                      <meta itemprop="commentCount" content="28">
+                      <div class="RichContent RichContent--unescapable">
+                        <div class="RichContent-inner"><span class="RichText ztext CopyrightRichText-richText"
+                            itemprop="text">
+                            <h2><a href="https://www.zhihu.com/people/Yifengwindd" class="internal"
+                                data-za-detail-view-id="1043">屹峰</a> 的回答已经有实际使用体验了，快去看。</h2>
+                            <hr>
+                            <figure data-size="normal"><noscript><img
+                                  src="https://pic3.zhimg.com/50/v2-670a89de698bb90f6117561b98efd582_hd.jpg"
+                                  data-size="normal" data-rawwidth="1920" data-rawheight="1080"
+                                  data-default-watermark-src="https://pic3.zhimg.com/50/v2-670a89de698bb90f6117561b98efd582_hd.jpg"
+                                  class="origin_image zh-lightbox-thumb" width="1920"
+                                  data-original="https://pic3.zhimg.com/v2-670a89de698bb90f6117561b98efd582_r.jpg" /></noscript><span>
+                                <div class="VagueImage origin_image zh-lightbox-thumb"
+                                  data-src="https://pic3.zhimg.com/80/v2-670a89de698bb90f6117561b98efd582_hd.jpg"
+                                  style="width: 654px; height: 367.875px;">
+                                  <div class="VagueImage-mask"
+                                    style="background-image: url(&quot;https://pic3.zhimg.com/80/v2-670a89de698bb90f6117561b98efd582_60w.jpg&quot;);">
+                                  </div><img class="VagueImage-innerLarge"
+                                    src="https://pic3.zhimg.com/80/v2-670a89de698bb90f6117561b98efd582_hd.jpg">
+                                </div>
+                              </span>
+                              <figcaption>Sidecar 效果图</figcaption>
+                            </figure>
+                            <p>Sidecar 是这次 WWDC2019 带来的一大亮点。</p>
+                            <p><b>简单来讲，Sidecar 可以让 iPad 作为 Mac 的外置显示器。除了输出图像至 iPad ，iPad 也能用来当作 Mac 的输入设备。</b></p>
+                            <p><b>Sidecar
+                                这个单词的原本意思是，加装在摩托车侧边的边车，</b>附加边车的摩托车称为「挎斗摩托车」，在中国俗称跨子，在两次世界大战时，作为一种高机动性的交通工具，得到广泛的运用，</p>
+                            <p><b>如下：</b></p>
+                            <figure data-size="normal"><noscript><img
+                                  src="https://pic2.zhimg.com/50/v2-e663014d9afaa51ca3f2d9b62471de81_hd.jpg"
+                                  data-size="normal" data-rawwidth="2388" data-rawheight="974"
+                                  data-default-watermark-src="https://pic2.zhimg.com/50/v2-e663014d9afaa51ca3f2d9b62471de81_hd.jpg"
+                                  class="origin_image zh-lightbox-thumb" width="2388"
+                                  data-original="https://pic2.zhimg.com/v2-e663014d9afaa51ca3f2d9b62471de81_r.jpg" /></noscript><span>
+                                <div class="VagueImage origin_image zh-lightbox-thumb"
+                                  data-src="https://pic2.zhimg.com/80/v2-e663014d9afaa51ca3f2d9b62471de81_hd.jpg"
+                                  style="width: 654px; height: 266.749px;">
+                                  <div class="VagueImage-mask"
+                                    style="background-image: url(&quot;https://pic2.zhimg.com/80/v2-e663014d9afaa51ca3f2d9b62471de81_60w.jpg&quot;);">
+                                  </div><img class="VagueImage-innerLarge"
+                                    src="https://pic2.zhimg.com/80/v2-e663014d9afaa51ca3f2d9b62471de81_hd.jpg">
+                                </div>
+                              </span>
+                              <figcaption>带有Sidecar的摩托车</figcaption>
+                            </figure>
+                            <p class="ztext-empty-paragraph"><br></p>
+                            <p>但是Sidecar功能貌似只存在于 iPad OS 中， iOS13并没有这个功能，iPhone屏幕那么小作为副屏也没什么用吧！而库克糟老头子并没有明确告知 iPad OS
+                              的可更新时间。（但可以通过下载固件方式更新，楼下已有答主更新了iPadOS）</p>
+                            <p>下面介绍一下Sidecar的一下功能：（还在了解更多细节，持续更新中）</p>
+                            <p><b>一、两种副屏模式：</b></p>
+                            <p>1、扩展模式：iPad作为Mac的扩展桌面，两个屏显示不一样的内容；</p>
+                            <p>2、镜像模式：两个屏幕显示一样的内容；（Liam：镜像的作用还是挺大的，比如这在电脑上阅读一份工作，坐得累了就可以直接拿着iPad往沙发上一趟，不需要两个屏之间来回操作）</p>
+                            <p><b>二、连接方式是有线和无线连接。</b></p>
+                            <p>已经在官网确定是支持有线连接的了，但是否支持Lighting数据线，还是只支持最新款 iPad Pro
+                              的Type-C数据线，还未最终确定。<br>如果只能通过Wifi连接的话，那延迟的问题很难解决，受路由器信号的限制太大了。官方建议无线连接的话应该在10米内，以保证灵敏度。</p>
+                            <p><b>三、可以肯定是，Sidecar 支持 Apple Pencil。</b></p>
+                            <p>顺便一提，Apple Pencil
+                              的延迟从20ms升级到了9ms，这就所向无敌了。<br>再加上iPad作为Mac的副屏，所有的专业软件，如Photoshop，都可以使用这支地表最强的笔。<br>可以想象，Wacom
+                              在Mac的市场很有可能将被完全占领。<br>（笔到屏幕的延迟虽然小了，但iPad到Mac的延迟依然是个迷，如果无线连接的延迟没法被解决，那都是空谈）</p>
+                            <p><b>四、当前已经为 Sidecar 提供支持的 APP 如下：</b></p>
+                            <figure data-size="normal"><noscript><img
+                                  src="https://pic2.zhimg.com/50/v2-f344d0ac644f842bcbd3d165bcbec42b_hd.jpg"
+                                  data-caption="" data-size="normal" data-rawwidth="1536" data-rawheight="956"
+                                  data-default-watermark-src="https://pic2.zhimg.com/50/v2-f344d0ac644f842bcbd3d165bcbec42b_hd.jpg"
+                                  class="origin_image zh-lightbox-thumb" width="1536"
+                                  data-original="https://pic2.zhimg.com/v2-f344d0ac644f842bcbd3d165bcbec42b_r.jpg" /></noscript><span>
+                                <div class="VagueImage origin_image zh-lightbox-thumb"
+                                  data-src="https://pic2.zhimg.com/80/v2-f344d0ac644f842bcbd3d165bcbec42b_hd.jpg"
+                                  style="width: 654px; height: 407.047px;">
+                                  <div class="VagueImage-mask is-active"></div>
+                                </div>
+                              </span></figure>
+                            <p><b>五、手势操作：</b></p>
+                            <p>Sidecar 支持 iPad 的内置手势操作，包括 复制、粘贴、剪切、后退 等</p>
+                            <p><b>六、文件共享（未确定）：</b></p>
+                            <p>Sidecar 除了屏幕扩展，貌似还支持文件共享。</p>
+                            <p>如，用 iPad 里的绘画APP创建的文件，画完后可以通过文件共享的方式传到Mac里继续画。</p>
+                            <p class="ztext-empty-paragraph"><br></p>
+                            <p>七、Touch Bar</p>
+                            <p>对于没有 Touch Bar 的 Macbook， Sidecar 会在 iPad 上模拟出一调 Touch Bar 出来。</p>
+                            <p>这个 Duet Display 也能做到。</p>
+                            <p class="ztext-empty-paragraph"><br></p>
+                            <p><b>八、顺便说说 Duet Display 和 Luna Display</b></p>
+                            <blockquote><i>以下内容引用自 航通社</i><br><i>Duet Display 的作者 Rahul Dewan 是苹果前工程师，他是最早进入将 iPad 用作
+                                Mac 副屏显示这一领域的开发者之一，他在苹果锻炼的专业技能，让 Duet Display 率先实现了以有线或无线方式显示 Mac
+                                屏幕镜像或延伸，同时以手指触摸模拟鼠标单击的操作方式。</i><br>此后，Astropad 进一步支持将 iPad 作为 Mac 的主屏幕而不是副屏，这使得你可以让 iPad
+                              搭配一个 Mac Mini 一起使用。<br>而硬件产品 Luna Display 则允许电脑将 iPad
+                              识别为一个物理显示器，而不是使用模拟的镜像技术，以避免延迟。<br>几家产品之间你追我赶，功能不断升级。2018 年 12 月，Duet Display 宣布使用 Mac
+                              的硬件加速功能 ，并号称比 Luna Display 连接速度更快，而且是以纯软件的方式，花费仅为购买 Luna Display 硬件的 1/10。</blockquote>
+                            <p class="ztext-empty-paragraph"><br></p>
+                            <p class="ztext-empty-paragraph"><br></p>
+                            <p><b>发一些发布会上的图：</b></p>
+                            <figure data-size="normal"><noscript><img
+                                  src="https://pic2.zhimg.com/50/v2-b1af2ed0af33b92f79f14c8ebdc7087b_hd.jpg"
+                                  data-caption="" data-size="normal" data-rawwidth="1280" data-rawheight="810"
+                                  data-default-watermark-src="https://pic2.zhimg.com/50/v2-b1af2ed0af33b92f79f14c8ebdc7087b_hd.jpg"
+                                  class="origin_image zh-lightbox-thumb" width="1280"
+                                  data-original="https://pic2.zhimg.com/v2-b1af2ed0af33b92f79f14c8ebdc7087b_r.jpg" /></noscript><span>
+                                <div class="VagueImage origin_image zh-lightbox-thumb"
+                                  data-src="https://pic2.zhimg.com/80/v2-b1af2ed0af33b92f79f14c8ebdc7087b_hd.jpg"
+                                  style="width: 654px; height: 413.859px;">
+                                  <div class="VagueImage-mask is-active"></div>
+                                </div>
+                              </span></figure>
+                            <figure data-size="normal"><noscript><img
+                                  src="https://pic4.zhimg.com/50/v2-c68ff5a5e49c50883c41e46d8cd88f53_hd.jpg"
+                                  data-caption="" data-size="normal" data-rawwidth="1280" data-rawheight="731"
+                                  data-default-watermark-src="https://pic4.zhimg.com/50/v2-c68ff5a5e49c50883c41e46d8cd88f53_hd.jpg"
+                                  class="origin_image zh-lightbox-thumb" width="1280"
+                                  data-original="https://pic4.zhimg.com/v2-c68ff5a5e49c50883c41e46d8cd88f53_r.jpg" /></noscript><span>
+                                <div class="VagueImage origin_image zh-lightbox-thumb"
+                                  data-src="https://pic4.zhimg.com/80/v2-c68ff5a5e49c50883c41e46d8cd88f53_hd.jpg"
+                                  style="width: 654px; height: 373.495px;">
+                                  <div class="VagueImage-mask is-active"></div>
+                                </div>
+                              </span></figure>
+                            <p></p>
+                          </span></div>
+                        <div>
+                          <div class="ContentItem-time"><a target="_blank"
+                              href="/question/327780925/answer/704644555"><span data-tooltip="发布于 2019-06-04 10:03">编辑于
+                                11:03</span></a></div>
+                        </div>
+                        <div>
+                          <div class="ContentItem-actions Sticky RichContent-actions is-fixed is-bottom"
+                            style="width: 694px; bottom: 0px; left: 452.5px;"><span><button aria-label="赞同 8"
+                                type="button" class="Button VoteButton VoteButton--up"><span
+                                  style="display: inline-flex; align-items: center;">​<svg
+                                    class="Zi Zi--TriangleUp VoteButton-TriangleUp" fill="currentColor"
+                                    viewBox="0 0 24 24" width="10" height="10">
+                                    <path
+                                      d="M2 18.242c0-.326.088-.532.237-.896l7.98-13.203C10.572 3.57 11.086 3 12 3c.915 0 1.429.571 1.784 1.143l7.98 13.203c.15.364.236.57.236.896 0 1.386-.875 1.9-1.955 1.9H3.955c-1.08 0-1.955-.517-1.955-1.9z"
+                                      fill-rule="evenodd"></path>
+                                  </svg></span>赞同 8</button><button aria-label="反对" type="button"
+                                class="Button VoteButton VoteButton--down"><span
+                                  style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--TriangleDown"
+                                    fill="currentColor" viewBox="0 0 24 24" width="10" height="10">
+                                    <path
+                                      d="M20.044 3H3.956C2.876 3 2 3.517 2 4.9c0 .326.087.533.236.896L10.216 19c.355.571.87 1.143 1.784 1.143s1.429-.572 1.784-1.143l7.98-13.204c.149-.363.236-.57.236-.896 0-1.386-.876-1.9-1.956-1.9z"
+                                      fill-rule="evenodd"></path>
+                                  </svg></span></button></span><button type="button"
+                              class="Button ContentItem-action Button--plain Button--withIcon Button--withLabel"><span
+                                style="display: inline-flex; align-items: center;">​<svg
+                                  class="Zi Zi--Comment Button-zi" fill="currentColor" viewBox="0 0 24 24" width="1.2em"
+                                  height="1.2em">
+                                  <path
+                                    d="M10.241 19.313a.97.97 0 0 0-.77.2 7.908 7.908 0 0 1-3.772 1.482.409.409 0 0 1-.38-.637 5.825 5.825 0 0 0 1.11-2.237.605.605 0 0 0-.227-.59A7.935 7.935 0 0 1 3 11.25C3 6.7 7.03 3 12 3s9 3.7 9 8.25-4.373 9.108-10.759 8.063z"
+                                    fill-rule="evenodd"></path>
+                                </svg></span>28 条评论</button>
+                            <div class="Popover ShareMenu ContentItem-action">
+                              <div class="ShareMenu-toggler" id="Popover12-toggle" aria-haspopup="true"
+                                aria-expanded="false" aria-owns="Popover12-content"><button type="button"
+                                  class="Button Button--plain Button--withIcon Button--withLabel"><span
+                                    style="display: inline-flex; align-items: center;">​<svg
+                                      class="Zi Zi--Share Button-zi" fill="currentColor" viewBox="0 0 24 24"
+                                      width="1.2em" height="1.2em">
+                                      <path
+                                        d="M2.931 7.89c-1.067.24-1.275 1.669-.318 2.207l5.277 2.908 8.168-4.776c.25-.127.477.198.273.39L9.05 14.66l.927 5.953c.18 1.084 1.593 1.376 2.182.456l9.644-15.242c.584-.892-.212-2.029-1.234-1.796L2.93 7.89z"
+                                        fill-rule="evenodd"></path>
+                                    </svg></span>分享</button></div>
+                            </div><button type="button"
+                              class="Button ContentItem-action Button--plain Button--withIcon Button--withLabel"><span
+                                style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--Star Button-zi"
+                                  fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em">
+                                  <path
+                                    d="M5.515 19.64l.918-5.355-3.89-3.792c-.926-.902-.639-1.784.64-1.97L8.56 7.74l2.404-4.871c.572-1.16 1.5-1.16 2.072 0L15.44 7.74l5.377.782c1.28.186 1.566 1.068.64 1.97l-3.89 3.793.918 5.354c.219 1.274-.532 1.82-1.676 1.218L12 18.33l-4.808 2.528c-1.145.602-1.896.056-1.677-1.218z"
+                                    fill-rule="evenodd"></path>
+                                </svg></span>收藏</button><button type="button"
+                              class="Button ContentItem-action Button--plain Button--withIcon Button--withLabel"><span
+                                style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--Heart Button-zi"
+                                  fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em">
+                                  <path
+                                    d="M2 8.437C2 5.505 4.294 3.094 7.207 3 9.243 3 11.092 4.19 12 6c.823-1.758 2.649-3 4.651-3C19.545 3 22 5.507 22 8.432 22 16.24 13.842 21 12 21 10.158 21 2 16.24 2 8.437z"
+                                    fill-rule="evenodd"></path>
+                                </svg></span>感谢</button><button data-zop-retract-question="true" type="button"
+                              class="Button ContentItem-action ContentItem-rightButton Button--plain"><span
+                                class="RichContent-collapsedText">收起</span><span
+                                style="display: inline-flex; align-items: center;">​<svg
+                                  class="Zi Zi--ArrowDown ContentItem-arrowIcon is-active" fill="currentColor"
+                                  viewBox="0 0 24 24" width="24" height="24">
+                                  <path
+                                    d="M12 13L8.285 9.218a.758.758 0 0 0-1.064 0 .738.738 0 0 0 0 1.052l4.249 4.512a.758.758 0 0 0 1.064 0l4.246-4.512a.738.738 0 0 0 0-1.052.757.757 0 0 0-1.063 0L12.002 13z"
+                                    fill-rule="evenodd"></path>
+                                </svg></span></button>
+                          </div>
+                          <div class="Sticky--holder"
+                            style="position: static; top: auto; right: auto; bottom: auto; left: auto; display: flex; float: none; margin: 0px -20px -10px; height: 54px; width: 694px;">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="Card ViewAll"><a class="QuestionMainAction ViewAll-QuestionMainAction"
+                    data-za-detail-view-element_name="ViewAll" href="/question/327780925">查看全部 6 个回答</a></div>
+              </div>
+            </div>
+            <div class="Question-sideColumn Question-sideColumn--sticky">
+              <div>
+                <div class="Sticky">
+                  <div class="Card AppBanner"><a class="AppBanner-link" href="http://zhi.hu/BDXoI">
+                      <div class="AppBanner-layout"><img class="AppBanner-qrcode"
+                          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAEDElEQVR4Ae3cQW5cRwwE0FGgAzhA7porxGe1gRxBWev9RaHRPc0syrsCySKnCmRjJMgfP/759fW6+O/fv//61u3Pn7+/YePfgq/Xy3zj1ptv3Hqx9cZP4z9OE5ZvT4Easqff8eoaclzSPcJPy1dvrPXi1Ruc8p3PfLHz7GL77/I5bzdkV9HD9TXksKC7dDVkV8HD9Y83RH5vnHHx6o1N+fYX218sf6o3Xz5x4jM/8XdDVGwY15BhA2xfQ1RkGMc3ZHi+R/t0gy1YvfHW38bdkNuKh341JAh0O1xDbise+o2/Ias33vzVN0U9duvl28XdkF0FD9fXkMOC7tLVkF0FD9fHN+T2jU39fEOSHokv1af4af5uSFL8cryGXBY8tashSaHL8ccbsnqj3z2v83iz3x3389nP+C7uhuwqeLi+hhwWdJeuhuwqeLj+05t8mP843btvuAPf1qcbogPDuIYMG2D7GqIiw/hj9e9D0k1NN976lK8+1htf5bN+F+/O1w3ZdeBwfQ05LOguXQ3ZVfBw/eN7iDc43UTn2c23v/yrOM1jP/ON2z/lG7de3A1RkWFcQ4YNsH0NUZFh/PH19fXt79RXb6bzr9abn27uav7qfOY7j/3NTzjxdUOSgpfjNeSy4KldDUkKXY7Hn2V583bn8wbLn+Kpf6rfjdtfPuN+PuPiboiKDOMaMmyA7WuIigzj+LMs50s303yxN3WVbzXf/uLEl+J+HvkTlr8bkhS7HK8hlwVP7WpIUuhy/PGzrNX+3kDrV2+sfKl+Nd/5Ur1x69N85ie+boiKDeMaMmyA7WuIigzjz3TTVm+k+fKn+K4e9kt8zmO+8cSf4omvG6IDw7iGDBtg+xqiIsN4+XuIN9KbuPp5Ep/xxO88p+sTv/E0r/FuiIoM4xoybIDta4iKDOP4PcT50o1MNzvV20+c6lf7my+2f4qbL7bez9MNUbFhXEOGDbB9DVGRYfz4nfruPN7E/xtfmmd1ft8E+Y3Lb7wbooLDuIYMG2D7GqIiw3j5e8juvN5QceL35lovTnwpnvpZv5pvfTdERYZxDRk2wPY1REWG8eP/XHz3DfbzenONi9N88qV8+cWr9Snf+ezXDVGRYVxDhg2wfQ1RkWH8eEOcJ90889MNXc23v1i+hFN9iq/yr+rRDUkKX47XkMuCp3Y1JCl0OR7fkMvzvNIN9yabbzzNb37iM574U779uyFJ0cvxGnJZ8NSuhiSFLsfH35B0Y1f1SHze7JRv/1Rv3Hr7ibshKjaMa8iwAbavISoyjOMbkm7i6fnt540V2//d9fZbxc5nfTdERYZxDRk2wPY1REWG8eMNSTf69rzp5jpPml8+88XyW2/c+tX8boiKDuMaMmyA7WuIigzj/wC7sm2izpKNiwAAAABJRU5ErkJggg=="
+                          alt="QR Code of Downloading Zhihu App">
+                        <div class="AppBanner-content">
+                          <div class="AppBanner-title">下载知乎客户端</div>
+                          <div class="AppBanner-description">与世界分享知识、经验和见解</div>
+                        </div>
+                      </div>
+                    </a></div>
+                  <div class="Question-sideColumnAdContainer">
+                    <div class="Pc-card Card"><a class="Banner-link"
+                        href="http://lp.sunlands.com/263/BJ/pc/cEnyZb/index.html?plan_id=961757&amp;creative_id=ju1"
+                        target="_blank">
+                        <div class="Banner-adTag">广告</div><img class="Banner-image"
+                          src="https://pic2.zhimg.com/v2-f623ed8da205145d2214ea5b58d57991_540x450.jpeg" alt="广告">
+                      </a>
+                      <div class="Pc-card-button-close " data-tooltip="不再显示" data-tooltip-position="bottom"><svg
+                          viewBox="0 0 12 12" class="Icon Icon--close Pc-card-button-close-svg ">
+                          <path fill-rule="evenodd" d="M3 2L2 3l3 3-3 3 1 1 3-3 3 3 1-1-3-3 3-3-1-1-3 3"></path>
+                        </svg></div>
+                    </div>
+                  </div>
+                  <div class="Card AnswerAuthor">
+                    <div class="Card-header AnswerAuthor-title">
+                      <div class="Card-headerText">关于作者</div>
+                    </div>
+                    <div class="Card-section">
+                      <div class="AnswerAuthor-user">
+                        <div class="AnswerAuthor-user-avatar"><span class="UserLink"><img
+                              class="Avatar Avatar--large UserLink-avatar" width="60" height="60"
+                              src="https://pic4.zhimg.com/da8e974dc_im.jpg"
+                              srcset="https://pic4.zhimg.com/da8e974dc_xl.jpg 2x" alt="知乎用户"></span></div>
+                        <div class="AnswerAuthor-user-content">
+                          <div class="AnswerAuthor-user-name"><span class="UserLink">知乎用户</span></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="Card-section"></div>
+                  </div>
+                  <div class="Card">
+                    <div class="Card-header AnswerInfo-title">
+                      <div class="Card-headerText">被收藏 <button type="button" class="Button Button--plain">3</button> 次
+                      </div>
+                    </div>
+                    <div class="Card-section AnswerInfo-favlists">
+                      <div class="AnswerInfo-favlist">
+                        <div class="AnswerInfo-favlist-title"><a target="_blank"
+                            data-za-detail-view-element_name="Collection" title="干干的" href="/collection/287382359"
+                            type="button" class="Button Button--plain">干干的</a></div>
+                        <div class="AnswerInfo-favlist-author"><span class="UserLink"><a class="UserLink-link"
+                              data-za-detail-view-element_name="Author" target="_blank"
+                              href="//www.zhihu.com/people/forever-76-23">死宅但不肥</a></span> 创建</div>
+                        <div class="AnswerInfo-favlist-followers">0 人关注</div>
+                      </div>
+                      <div class="AnswerInfo-favlist">
+                        <div class="AnswerInfo-favlist-title"><a target="_blank"
+                            data-za-detail-view-element_name="Collection" title="创业" href="/collection/36935596"
+                            type="button" class="Button Button--plain">创业</a></div>
+                        <div class="AnswerInfo-favlist-author"><span class="UserLink"><a class="UserLink-link"
+                              data-za-detail-view-element_name="Author" target="_blank"
+                              href="//www.zhihu.com/people/zhang-xiao-30-57">张嚣</a></span> 创建</div>
+                        <div class="AnswerInfo-favlist-followers">0 人关注</div>
+                      </div>
+                      <div class="AnswerInfo-favlist">
+                        <div class="AnswerInfo-favlist-title"><a target="_blank"
+                            data-za-detail-view-element_name="Collection" title="2" href="/collection/364547325"
+                            type="button" class="Button Button--plain">2</a></div>
+                        <div class="AnswerInfo-favlist-author"><span class="UserLink"><a class="UserLink-link"
+                              data-za-detail-view-element_name="Author" target="_blank"
+                              href="//www.zhihu.com/people/wang-zhi-kai-75-86">cloud catcher</a></span> 创建</div>
+                        <div class="AnswerInfo-favlist-followers">0 人关注</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="Card">
+                    <div class="Card-header SimilarQuestions-title">
+                      <div class="Card-headerText">相关问题</div>
+                    </div>
+                    <div class="Card-section SimilarQuestions-list">
+                      <div class="SimilarQuestions-item" itemprop="zhihu:similarQuestion"
+                        itemtype="http://schema.org/Question" itemscope="">
+                        <meta itemprop="name" content="如何评价2019年6月4日WWDC上发布的iPadOS？">
+                        <meta itemprop="url" content="https://www.zhihu.com/question/327762388">
+                        <meta itemprop="answerCount" content="14">
+                        <meta itemprop="zhihu:followerCount" content="56"><a target="_blank" type="button"
+                          class="Button Button--plain" href="/question/327762388">如何评价2019年6月4日WWDC上发布的iPadOS？</a> 14
+                        个回答</div>
+                      <div class="SimilarQuestions-item" itemprop="zhihu:similarQuestion"
+                        itemtype="http://schema.org/Question" itemscope="">
+                        <meta itemprop="name" content="如何评价WWDC 2018没有发布任何硬件？">
+                        <meta itemprop="url" content="https://www.zhihu.com/question/279833905">
+                        <meta itemprop="answerCount" content="9">
+                        <meta itemprop="zhihu:followerCount" content="19"><a target="_blank" type="button"
+                          class="Button Button--plain" href="/question/279833905">如何评价WWDC 2018没有发布任何硬件？</a> 9 个回答</div>
+                      <div class="SimilarQuestions-item" itemprop="zhihu:similarQuestion"
+                        itemtype="http://schema.org/Question" itemscope="">
+                        <meta itemprop="name" content="WWDC19 上发布的 iPadOS 真实体验如何？">
+                        <meta itemprop="url" content="https://www.zhihu.com/question/327758669">
+                        <meta itemprop="answerCount" content="70">
+                        <meta itemprop="zhihu:followerCount" content="720"><a target="_blank" type="button"
+                          class="Button Button--plain" href="/question/327758669">WWDC19 上发布的 iPadOS 真实体验如何？</a> 70 个回答
+                      </div>
+                      <div class="SimilarQuestions-item" itemprop="zhihu:similarQuestion"
+                        itemtype="http://schema.org/Question" itemscope="">
+                        <meta itemprop="name" content="duet display一直处于启动dust状态？">
+                        <meta itemprop="url" content="https://www.zhihu.com/question/66738797">
+                        <meta itemprop="answerCount" content="5">
+                        <meta itemprop="zhihu:followerCount" content="9"><a target="_blank" type="button"
+                          class="Button Button--plain" href="/question/66738797">duet display一直处于启动dust状态？</a> 5 个回答
+                      </div>
+                      <div class="SimilarQuestions-item" itemprop="zhihu:similarQuestion"
+                        itemtype="http://schema.org/Question" itemscope="">
+                        <meta itemprop="name" content="如何评价苹果在2019年WWDC上发布的Pro Display XDR 专业显示器？">
+                        <meta itemprop="url" content="https://www.zhihu.com/question/327763905">
+                        <meta itemprop="answerCount" content="46">
+                        <meta itemprop="zhihu:followerCount" content="266"><a target="_blank" type="button"
+                          class="Button Button--plain" href="/question/327763905">如何评价苹果在2019年WWDC上发布的Pro Display XDR
+                          专业显示器？</a> 46 个回答</div>
+                    </div>
+                  </div>
+                  <div></div>
+                  <footer class="Footer"><a class="Footer-item" target="_blank" rel="noopener noreferrer"
+                      href="//liukanshan.zhihu.com/">刘看山</a><span class="Footer-dot"></span><a class="Footer-item"
+                      target="_blank" rel="noopener noreferrer" href="/question/19581624">知乎指南</a><span
+                      class="Footer-dot"></span><a class="Footer-item" target="_blank" rel="noopener noreferrer"
+                      href="/terms">知乎协议</a><span class="Footer-dot"></span><a class="Footer-item" target="_blank"
+                      rel="noopener noreferrer" href="/term/privacy">知乎隐私保护指引</a><br><a class="Footer-item"
+                      target="_blank" href="/app">应用</a><span class="Footer-dot"></span><a class="Footer-item"
+                      target="_blank" rel="noopener noreferrer" href="https://app.mokahr.com/apply/zhihu">工作</a><span
+                      class="Footer-dot"></span><button type="button"
+                      class="Button OrgCreateButton">申请开通知乎机构号</button><br><a class="Footer-item" target="_blank"
+                      rel="noopener noreferrer" href="https://zhuanlan.zhihu.com/p/51068775">侵权举报</a><span
+                      class="Footer-dot"></span><a class="Footer-item" target="_blank" rel="noopener noreferrer"
+                      href="http://www.12377.cn">网上有害信息举报专区</a><br><span
+                      class="Footer-item">违法和不良信息举报：010-82716601</span><br><a class="Footer-item" target="_blank"
+                      href="/jubao">儿童色情信息举报专区</a><br><a class="Footer-item" target="_blank" rel="noopener noreferrer"
+                      href="https://zhstatic.zhihu.com/assets/zhihu/certificates/certificate-ICP.png">电信与服务业务经营许可证</a><br><a
+                      class="Footer-item" target="_blank" rel="noopener noreferrer"
+                      href="https://zhstatic.zhihu.com/assets/zhihu/certificates/certificate-1.jpeg">网络文化经营许可证</a><br><a
+                      class="Footer-item" target="_blank" href="/contact">联系我们</a><span> © 2019 知乎</span></footer>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <div class="CornerButtons">
+        <div class="CornerAnimayedFlex"><button data-tooltip="建议反馈" data-tooltip-position="left"
+            data-tooltip-will-hide-on-click="true" aria-label="建议反馈" type="button"
+            class="Button CornerButton Button--plain"><svg class="Zi Zi--Feedback" title="建议反馈" fill="currentColor"
+              viewBox="0 0 24 24" width="24" height="24">
+              <path
+                d="M19.99 6.99L18 5s-1-1-2-1H8C7 4 6 5 6 5L4 7S3 8 3 9v9s0 2 2.002 2H19c2 0 2-2 2-2V9c0-1-1.01-2.01-1.01-2.01zM16.5 5.5L19 8H5l2.5-2.5h9zm-2 5.5s.5 0 .5.5-.5.5-.5.5h-5s-.5 0-.5-.5.5-.5.5-.5h5z">
+              </path>
+            </svg></button></div>
+        <div class="CornerAnimayedFlex CornerAnimayedFlex--hidden"><button data-tooltip="回到顶部"
+            data-tooltip-position="left" data-tooltip-will-hide-on-click="true" aria-label="回到顶部" type="button"
+            class="Button CornerButton Button--plain"><svg class="Zi Zi--BackToTop" title="回到顶部" fill="currentColor"
+              viewBox="0 0 24 24" width="24" height="24">
+              <path
+                d="M16.036 19.59a1 1 0 0 1-.997.995H9.032a.996.996 0 0 1-.997-.996v-7.005H5.03c-1.1 0-1.36-.633-.578-1.416L11.33 4.29a1.003 1.003 0 0 1 1.412 0l6.878 6.88c.782.78.523 1.415-.58 1.415h-3.004v7.005z">
+              </path>
+            </svg></button></div>
+      </div>
+    </div>
+  </div>
+  <script id="js-clientConfig"
+    type="text/json">{"host":"zhihu.com","protocol":"https:","wwwHost":"www.zhihu.com","zhuanlanHost":"zhuanlan.zhihu.com"}</script>
+  <script id="js-initialData"
+    type="text/json">{"initialState":{"common":{"ask":{}},"loading":{"global":{"count":0},"local":{"question\u002Fget\u002F":false,"answer\u002Fget\u002F":false}},"entities":{"users":{},"questions":{"327780925":{"type":"question","id":327780925,"title":"WWDC19 发布的 Sidecar 副屏功能好用吗？","questionType":"normal","created":1559613711,"updatedTime":1559613711,"url":"https:\u002F\u002Fwww.zhihu.com\u002Fapi\u002Fv4\u002Fquestions\u002F327780925","isMuted":false,"isNormal":true,"isEditable":false,"adminClosedComment":false,"hasPublishingDraft":false,"answerCount":6,"visitCount":7687,"commentCount":0,"followerCount":32,"collapsedAnswerCount":0,"excerpt":"（iPad作为Mac副屏的功能） 类似Duet Display和Luna Display的功能。","commentPermission":"all","detail":"\u003Cp\u003E（iPad作为Mac副屏的功能）\u003Cbr\u002F\u003E类似Duet Display和Luna Display的功能。\u003C\u002Fp\u003E","editableDetail":"\u003Cp\u003E（iPad作为Mac副屏的功能）\u003Cbr\u003E类似Duet Display和Luna Display的功能。\u003C\u002Fp\u003E","status":{"isLocked":false,"isClose":false,"isEvaluate":false,"isSuggest":false},"relationship":{"isAuthor":false,"isFollowing":false,"isAnonymous":false,"canLock":false,"canStickAnswers":false,"canCollapseAnswers":false},"topics":[{"id":"19550290","type":"topic","url":"https:\u002F\u002Fwww.zhihu.com\u002Fapi\u002Fv4\u002Ftopics\u002F19550290","name":"macOS","avatarUrl":"https:\u002F\u002Fpic3.zhimg.com\u002Fef2309750_is.jpg"},{"id":"19550297","type":"topic","url":"https:\u002F\u002Fwww.zhihu.com\u002Fapi\u002Fv4\u002Ftopics\u002F19550297","name":"iPad","avatarUrl":"https:\u002F\u002Fpic1.zhimg.com\u002Fca02ceaa6598657af1511e6fdc12cc97_is.jpg"},{"id":"19552136","type":"topic","url":"https:\u002F\u002Fwww.zhihu.com\u002Fapi\u002Fv4\u002Ftopics\u002F19552136","name":"功能","avatarUrl":"https:\u002F\u002Fpic4.zhimg.com\u002Fe82bab09c_is.jpg"},{"id":"19557947","type":"topic","url":"https:\u002F\u002Fwww.zhihu.com\u002Fapi\u002Fv4\u002Ftopics\u002F19557947","name":"WWDC","avatarUrl":"https:\u002F\u002Fpic4.zhimg.com\u002Ff919017e3_is.jpg"}],"author":{"id":"ff870cff9a2c7b4151ebfde832cf3002","urlToken":"","name":"知乎用户","avatarUrl":"https:\u002F\u002Fpic4.zhimg.com\u002Fda8e974dc_is.jpg","avatarUrlTemplate":"https:\u002F\u002Fpic4.zhimg.com\u002Fda8e974dc_{size}.jpg","isOrg":false,"type":"people","url":"https:\u002F\u002Fwww.zhihu.com\u002Fapi\u002Fv4\u002Fpeople\u002F0","userType":"people","headline":"","badge":[],"gender":-1,"isAdvertiser":false,"isPrivacy":true},"canComment":{"status":true,"reason":""},"reviewInfo":{"type":"","tips":"","editTips":"","isReviewing":false},"relatedCards":[],"muteInfo":{"type":""},"showAuthor":false}},"answers":{"704644555":{"id":704644555,"type":"answer","answerType":"normal","question":{"type":"question","id":327780925,"title":"WWDC19 发布的 Sidecar 副屏功能好用吗？","questionType":"normal","created":1559613711,"updatedTime":1559613711,"url":"https:\u002F\u002Fwww.zhihu.com\u002Fapi\u002Fv4\u002Fquestions\u002F327780925","relationship":{}},"author":{"id":"ff870cff9a2c7b4151ebfde832cf3002","urlToken":"","name":"知乎用户","avatarUrl":"https:\u002F\u002Fpic4.zhimg.com\u002Fda8e974dc_is.jpg","avatarUrlTemplate":"https:\u002F\u002Fpic4.zhimg.com\u002Fda8e974dc_{size}.jpg","isOrg":false,"type":"people","url":"https:\u002F\u002Fwww.zhihu.com\u002Fapi\u002Fv4\u002Fpeople\u002F0","userType":"people","headline":"","badge":[],"gender":-1,"isAdvertiser":false,"isFollowed":false,"isPrivacy":true},"url":"https:\u002F\u002Fwww.zhihu.com\u002Fapi\u002Fv4\u002Fanswers\u002F704644555","isCollapsed":false,"createdTime":1559613815,"updatedTime":1559703838,"extras":"","isCopyable":true,"isNormal":true,"voteupCount":8,"commentCount":28,"isSticky":false,"adminClosedComment":false,"commentPermission":"all","canComment":{"reason":"","status":true},"reshipmentSettings":"allowed","content":"\u003Ch2\u003E\u003Ca href=\"https:\u002F\u002Fwww.zhihu.com\u002Fpeople\u002FYifengwindd\" class=\"internal\"\u003E屹峰\u003C\u002Fa\u003E 的回答已经有实际使用体验了，快去看。\u003C\u002Fh2\u003E\u003Chr\u002F\u003E\u003Cfigure data-size=\"normal\"\u003E\u003Cnoscript\u003E\u003Cimg src=\"https:\u002F\u002Fpic3.zhimg.com\u002F50\u002Fv2-670a89de698bb90f6117561b98efd582_hd.jpg\" data-size=\"normal\" data-rawwidth=\"1920\" data-rawheight=\"1080\" data-default-watermark-src=\"https:\u002F\u002Fpic3.zhimg.com\u002F50\u002Fv2-670a89de698bb90f6117561b98efd582_hd.jpg\" class=\"origin_image zh-lightbox-thumb\" width=\"1920\" data-original=\"https:\u002F\u002Fpic3.zhimg.com\u002Fv2-670a89de698bb90f6117561b98efd582_r.jpg\"\u002F\u003E\u003C\u002Fnoscript\u003E\u003Cimg src=\"data:image\u002Fsvg+xml;utf8,&lt;svg xmlns=&#39;http:\u002F\u002Fwww.w3.org\u002F2000\u002Fsvg&#39; width=&#39;1920&#39; height=&#39;1080&#39;&gt;&lt;\u002Fsvg&gt;\" data-size=\"normal\" data-rawwidth=\"1920\" data-rawheight=\"1080\" data-default-watermark-src=\"https:\u002F\u002Fpic3.zhimg.com\u002F50\u002Fv2-670a89de698bb90f6117561b98efd582_hd.jpg\" class=\"origin_image zh-lightbox-thumb lazy\" width=\"1920\" data-original=\"https:\u002F\u002Fpic3.zhimg.com\u002Fv2-670a89de698bb90f6117561b98efd582_r.jpg\" data-actualsrc=\"https:\u002F\u002Fpic3.zhimg.com\u002F50\u002Fv2-670a89de698bb90f6117561b98efd582_hd.jpg\"\u002F\u003E\u003Cfigcaption\u003ESidecar 效果图\u003C\u002Ffigcaption\u003E\u003C\u002Ffigure\u003E\u003Cp\u003ESidecar 是这次 WWDC2019 带来的一大亮点。\u003C\u002Fp\u003E\u003Cp\u003E\u003Cb\u003E简单来讲，Sidecar 可以让 iPad 作为 Mac 的外置显示器。除了输出图像至 iPad ，iPad 也能用来当作 Mac 的输入设备。\u003C\u002Fb\u003E\u003C\u002Fp\u003E\u003Cp\u003E\u003Cb\u003ESidecar 这个单词的原本意思是，加装在摩托车侧边的边车，\u003C\u002Fb\u003E附加边车的摩托车称为「挎斗摩托车」，在中国俗称跨子，在两次世界大战时，作为一种高机动性的交通工具，得到广泛的运用，\u003C\u002Fp\u003E\u003Cp\u003E\u003Cb\u003E如下：\u003C\u002Fb\u003E\u003C\u002Fp\u003E\u003Cfigure data-size=\"normal\"\u003E\u003Cnoscript\u003E\u003Cimg src=\"https:\u002F\u002Fpic2.zhimg.com\u002F50\u002Fv2-e663014d9afaa51ca3f2d9b62471de81_hd.jpg\" data-size=\"normal\" data-rawwidth=\"2388\" data-rawheight=\"974\" data-default-watermark-src=\"https:\u002F\u002Fpic2.zhimg.com\u002F50\u002Fv2-e663014d9afaa51ca3f2d9b62471de81_hd.jpg\" class=\"origin_image zh-lightbox-thumb\" width=\"2388\" data-original=\"https:\u002F\u002Fpic2.zhimg.com\u002Fv2-e663014d9afaa51ca3f2d9b62471de81_r.jpg\"\u002F\u003E\u003C\u002Fnoscript\u003E\u003Cimg src=\"data:image\u002Fsvg+xml;utf8,&lt;svg xmlns=&#39;http:\u002F\u002Fwww.w3.org\u002F2000\u002Fsvg&#39; width=&#39;2388&#39; height=&#39;974&#39;&gt;&lt;\u002Fsvg&gt;\" data-size=\"normal\" data-rawwidth=\"2388\" data-rawheight=\"974\" data-default-watermark-src=\"https:\u002F\u002Fpic2.zhimg.com\u002F50\u002Fv2-e663014d9afaa51ca3f2d9b62471de81_hd.jpg\" class=\"origin_image zh-lightbox-thumb lazy\" width=\"2388\" data-original=\"https:\u002F\u002Fpic2.zhimg.com\u002Fv2-e663014d9afaa51ca3f2d9b62471de81_r.jpg\" data-actualsrc=\"https:\u002F\u002Fpic2.zhimg.com\u002F50\u002Fv2-e663014d9afaa51ca3f2d9b62471de81_hd.jpg\"\u002F\u003E\u003Cfigcaption\u003E带有Sidecar的摩托车\u003C\u002Ffigcaption\u003E\u003C\u002Ffigure\u003E\u003Cp class=\"ztext-empty-paragraph\"\u003E\u003Cbr\u002F\u003E\u003C\u002Fp\u003E\u003Cp\u003E但是Sidecar功能貌似只存在于 iPad OS 中， iOS13并没有这个功能，iPhone屏幕那么小作为副屏也没什么用吧！而库克糟老头子并没有明确告知 iPad OS 的可更新时间。（但可以通过下载固件方式更新，楼下已有答主更新了iPadOS）\u003C\u002Fp\u003E\u003Cp\u003E下面介绍一下Sidecar的一下功能：（还在了解更多细节，持续更新中）\u003C\u002Fp\u003E\u003Cp\u003E\u003Cb\u003E一、两种副屏模式：\u003C\u002Fb\u003E\u003C\u002Fp\u003E\u003Cp\u003E1、扩展模式：iPad作为Mac的扩展桌面，两个屏显示不一样的内容；\u003C\u002Fp\u003E\u003Cp\u003E2、镜像模式：两个屏幕显示一样的内容；（Liam：镜像的作用还是挺大的，比如这在电脑上阅读一份工作，坐得累了就可以直接拿着iPad往沙发上一趟，不需要两个屏之间来回操作）\u003C\u002Fp\u003E\u003Cp\u003E\u003Cb\u003E二、连接方式是有线和无线连接。\u003C\u002Fb\u003E\u003C\u002Fp\u003E\u003Cp\u003E已经在官网确定是支持有线连接的了，但是否支持Lighting数据线，还是只支持最新款 iPad Pro 的Type-C数据线，还未最终确定。\u003Cbr\u002F\u003E如果只能通过Wifi连接的话，那延迟的问题很难解决，受路由器信号的限制太大了。官方建议无线连接的话应该在10米内，以保证灵敏度。\u003C\u002Fp\u003E\u003Cp\u003E\u003Cb\u003E三、可以肯定是，Sidecar 支持 Apple Pencil。\u003C\u002Fb\u003E\u003C\u002Fp\u003E\u003Cp\u003E顺便一提，Apple Pencil 的延迟从20ms升级到了9ms，这就所向无敌了。\u003Cbr\u002F\u003E再加上iPad作为Mac的副屏，所有的专业软件，如Photoshop，都可以使用这支地表最强的笔。\u003Cbr\u002F\u003E可以想象，Wacom 在Mac的市场很有可能将被完全占领。\u003Cbr\u002F\u003E（笔到屏幕的延迟虽然小了，但iPad到Mac的延迟依然是个迷，如果无线连接的延迟没法被解决，那都是空谈）\u003C\u002Fp\u003E\u003Cp\u003E\u003Cb\u003E四、当前已经为 Sidecar 提供支持的 APP 如下：\u003C\u002Fb\u003E\u003C\u002Fp\u003E\u003Cfigure data-size=\"normal\"\u003E\u003Cnoscript\u003E\u003Cimg src=\"https:\u002F\u002Fpic2.zhimg.com\u002F50\u002Fv2-f344d0ac644f842bcbd3d165bcbec42b_hd.jpg\" data-caption=\"\" data-size=\"normal\" data-rawwidth=\"1536\" data-rawheight=\"956\" data-default-watermark-src=\"https:\u002F\u002Fpic2.zhimg.com\u002F50\u002Fv2-f344d0ac644f842bcbd3d165bcbec42b_hd.jpg\" class=\"origin_image zh-lightbox-thumb\" width=\"1536\" data-original=\"https:\u002F\u002Fpic2.zhimg.com\u002Fv2-f344d0ac644f842bcbd3d165bcbec42b_r.jpg\"\u002F\u003E\u003C\u002Fnoscript\u003E\u003Cimg src=\"data:image\u002Fsvg+xml;utf8,&lt;svg xmlns=&#39;http:\u002F\u002Fwww.w3.org\u002F2000\u002Fsvg&#39; width=&#39;1536&#39; height=&#39;956&#39;&gt;&lt;\u002Fsvg&gt;\" data-caption=\"\" data-size=\"normal\" data-rawwidth=\"1536\" data-rawheight=\"956\" data-default-watermark-src=\"https:\u002F\u002Fpic2.zhimg.com\u002F50\u002Fv2-f344d0ac644f842bcbd3d165bcbec42b_hd.jpg\" class=\"origin_image zh-lightbox-thumb lazy\" width=\"1536\" data-original=\"https:\u002F\u002Fpic2.zhimg.com\u002Fv2-f344d0ac644f842bcbd3d165bcbec42b_r.jpg\" data-actualsrc=\"https:\u002F\u002Fpic2.zhimg.com\u002F50\u002Fv2-f344d0ac644f842bcbd3d165bcbec42b_hd.jpg\"\u002F\u003E\u003C\u002Ffigure\u003E\u003Cp\u003E\u003Cb\u003E五、手势操作：\u003C\u002Fb\u003E\u003C\u002Fp\u003E\u003Cp\u003ESidecar 支持 iPad 的内置手势操作，包括 复制、粘贴、剪切、后退 等\u003C\u002Fp\u003E\u003Cp\u003E\u003Cb\u003E六、文件共享（未确定）：\u003C\u002Fb\u003E\u003C\u002Fp\u003E\u003Cp\u003ESidecar 除了屏幕扩展，貌似还支持文件共享。\u003C\u002Fp\u003E\u003Cp\u003E如，用 iPad 里的绘画APP创建的文件，画完后可以通过文件共享的方式传到Mac里继续画。\u003C\u002Fp\u003E\u003Cp class=\"ztext-empty-paragraph\"\u003E\u003Cbr\u002F\u003E\u003C\u002Fp\u003E\u003Cp\u003E七、Touch Bar\u003C\u002Fp\u003E\u003Cp\u003E对于没有 Touch Bar 的 Macbook， Sidecar 会在 iPad 上模拟出一调 Touch Bar 出来。\u003C\u002Fp\u003E\u003Cp\u003E这个 Duet Display 也能做到。\u003C\u002Fp\u003E\u003Cp class=\"ztext-empty-paragraph\"\u003E\u003Cbr\u002F\u003E\u003C\u002Fp\u003E\u003Cp\u003E\u003Cb\u003E八、顺便说说 Duet Display 和 Luna Display\u003C\u002Fb\u003E\u003C\u002Fp\u003E\u003Cblockquote\u003E\u003Ci\u003E以下内容引用自 航通社\u003C\u002Fi\u003E\u003Cbr\u002F\u003E\u003Ci\u003EDuet Display 的作者 Rahul Dewan 是苹果前工程师，他是最早进入将 iPad 用作 Mac 副屏显示这一领域的开发者之一，他在苹果锻炼的专业技能，让 Duet Display 率先实现了以有线或无线方式显示 Mac 屏幕镜像或延伸，同时以手指触摸模拟鼠标单击的操作方式。\u003C\u002Fi\u003E\u003Cbr\u002F\u003E此后，Astropad 进一步支持将 iPad 作为 Mac 的主屏幕而不是副屏，这使得你可以让 iPad 搭配一个 Mac Mini 一起使用。\u003Cbr\u002F\u003E而硬件产品 Luna Display 则允许电脑将 iPad 识别为一个物理显示器，而不是使用模拟的镜像技术，以避免延迟。\u003Cbr\u002F\u003E几家产品之间你追我赶，功能不断升级。2018 年 12 月，Duet Display 宣布使用 Mac 的硬件加速功能 ，并号称比 Luna Display 连接速度更快，而且是以纯软件的方式，花费仅为购买 Luna Display 硬件的 1\u002F10。\u003C\u002Fblockquote\u003E\u003Cp class=\"ztext-empty-paragraph\"\u003E\u003Cbr\u002F\u003E\u003C\u002Fp\u003E\u003Cp class=\"ztext-empty-paragraph\"\u003E\u003Cbr\u002F\u003E\u003C\u002Fp\u003E\u003Cp\u003E\u003Cb\u003E发一些发布会上的图：\u003C\u002Fb\u003E\u003C\u002Fp\u003E\u003Cfigure data-size=\"normal\"\u003E\u003Cnoscript\u003E\u003Cimg src=\"https:\u002F\u002Fpic2.zhimg.com\u002F50\u002Fv2-b1af2ed0af33b92f79f14c8ebdc7087b_hd.jpg\" data-caption=\"\" data-size=\"normal\" data-rawwidth=\"1280\" data-rawheight=\"810\" data-default-watermark-src=\"https:\u002F\u002Fpic2.zhimg.com\u002F50\u002Fv2-b1af2ed0af33b92f79f14c8ebdc7087b_hd.jpg\" class=\"origin_image zh-lightbox-thumb\" width=\"1280\" data-original=\"https:\u002F\u002Fpic2.zhimg.com\u002Fv2-b1af2ed0af33b92f79f14c8ebdc7087b_r.jpg\"\u002F\u003E\u003C\u002Fnoscript\u003E\u003Cimg src=\"data:image\u002Fsvg+xml;utf8,&lt;svg xmlns=&#39;http:\u002F\u002Fwww.w3.org\u002F2000\u002Fsvg&#39; width=&#39;1280&#39; height=&#39;810&#39;&gt;&lt;\u002Fsvg&gt;\" data-caption=\"\" data-size=\"normal\" data-rawwidth=\"1280\" data-rawheight=\"810\" data-default-watermark-src=\"https:\u002F\u002Fpic2.zhimg.com\u002F50\u002Fv2-b1af2ed0af33b92f79f14c8ebdc7087b_hd.jpg\" class=\"origin_image zh-lightbox-thumb lazy\" width=\"1280\" data-original=\"https:\u002F\u002Fpic2.zhimg.com\u002Fv2-b1af2ed0af33b92f79f14c8ebdc7087b_r.jpg\" data-actualsrc=\"https:\u002F\u002Fpic2.zhimg.com\u002F50\u002Fv2-b1af2ed0af33b92f79f14c8ebdc7087b_hd.jpg\"\u002F\u003E\u003C\u002Ffigure\u003E\u003Cfigure data-size=\"normal\"\u003E\u003Cnoscript\u003E\u003Cimg src=\"https:\u002F\u002Fpic4.zhimg.com\u002F50\u002Fv2-c68ff5a5e49c50883c41e46d8cd88f53_hd.jpg\" data-caption=\"\" data-size=\"normal\" data-rawwidth=\"1280\" data-rawheight=\"731\" data-default-watermark-src=\"https:\u002F\u002Fpic4.zhimg.com\u002F50\u002Fv2-c68ff5a5e49c50883c41e46d8cd88f53_hd.jpg\" class=\"origin_image zh-lightbox-thumb\" width=\"1280\" data-original=\"https:\u002F\u002Fpic4.zhimg.com\u002Fv2-c68ff5a5e49c50883c41e46d8cd88f53_r.jpg\"\u002F\u003E\u003C\u002Fnoscript\u003E\u003Cimg src=\"data:image\u002Fsvg+xml;utf8,&lt;svg xmlns=&#39;http:\u002F\u002Fwww.w3.org\u002F2000\u002Fsvg&#39; width=&#39;1280&#39; height=&#39;731&#39;&gt;&lt;\u002Fsvg&gt;\" data-caption=\"\" data-size=\"normal\" data-rawwidth=\"1280\" data-rawheight=\"731\" data-default-watermark-src=\"https:\u002F\u002Fpic4.zhimg.com\u002F50\u002Fv2-c68ff5a5e49c50883c41e46d8cd88f53_hd.jpg\" class=\"origin_image zh-lightbox-thumb lazy\" width=\"1280\" data-original=\"https:\u002F\u002Fpic4.zhimg.com\u002Fv2-c68ff5a5e49c50883c41e46d8cd88f53_r.jpg\" data-actualsrc=\"https:\u002F\u002Fpic4.zhimg.com\u002F50\u002Fv2-c68ff5a5e49c50883c41e46d8cd88f53_hd.jpg\"\u002F\u003E\u003C\u002Ffigure\u003E\u003Cp\u003E\u003C\u002Fp\u003E","editableContent":"","excerpt":"屹峰 的回答已经有实际使用体验了，快去看。 [图片] Sidecar 是这次 WWDC2019 带来的一大亮点。简单来讲，Sidecar 可以让 iPad 作为 Mac 的外置显示器。除了输出图像至 iPad ，iPad 也能用来当作 Mac 的输入设备。Sidecar 这个单词的原本意思是，加装在摩托车侧边的边车，附加边车的摩托车称为「挎斗摩托车」，在中国俗称跨子，在两次世界大战时，作为一种高机动性的交通工具，得到广泛的运用，如下： [图片] 但是Sidecar功能貌似只存在于 iPad …","collapsedBy":"nobody","collapseReason":"","annotationAction":null,"markInfos":[],"relevantInfo":{"isRelevant":false,"relevantType":"","relevantText":""},"suggestEdit":{"reason":"","status":false,"tip":"","title":"","unnormalDetails":{"status":"","description":"","reason":"","reasonId":0,"note":""},"url":""},"isLabeled":false,"rewardInfo":{"canOpenReward":false,"isRewardable":false,"rewardMemberCount":0,"rewardTotalMoney":0,"tagline":""},"relationship":{"isAuthor":false,"isAuthorized":false,"isNothelp":false,"isThanked":false,"isRecognized":false,"voting":0,"upvotedFollowees":[]}}},"articles":{},"columns":{},"topics":{},"roundtables":{},"favlists":{},"comments":{},"notifications":{},"ebooks":{},"activities":{},"feeds":{},"pins":{},"promotions":{},"drafts":{},"chats":{}},"currentUser":"","account":{"lockLevel":{},"unlockTicketStatus":false,"unlockTicket":null,"challenge":[],"errorStatus":false,"message":"","isFetching":false,"accountInfo":{},"urlToken":{"loading":false}},"settings":{"socialBind":null,"inboxMsg":null,"notification":{},"email":{},"privacyFlag":null,"blockedUsers":{"isFetching":false,"paging":{"pageNo":1,"pageSize":6},"data":[]},"blockedFollowees":{"isFetching":false,"paging":{"pageNo":1,"pageSize":6},"data":[]},"ignoredTopics":{"isFetching":false,"paging":{"pageNo":1,"pageSize":6},"data":[]},"restrictedTopics":null,"laboratory":{}},"notification":{},"people":{"profileStatus":{},"activitiesByUser":{},"answersByUser":{},"answersSortByVotesByUser":{},"answersIncludedByUser":{},"votedAnswersByUser":{},"thankedAnswersByUser":{},"voteAnswersByUser":{},"thankAnswersByUser":{},"topicAnswersByUser":{},"articlesByUser":{},"articlesSortByVotesByUser":{},"articlesIncludedByUser":{},"pinsByUser":{},"questionsByUser":{},"commercialQuestionsByUser":{},"favlistsByUser":{},"followingByUser":{},"followersByUser":{},"mutualsByUser":{},"followingColumnsByUser":{},"followingQuestionsByUser":{},"followingFavlistsByUser":{},"followingTopicsByUser":{},"publicationsByUser":{},"columnsByUser":{},"allFavlistsByUser":{},"brands":null,"creationsByUser":{},"creationsSortByVotesByUser":{}},"env":{"ab":{"config":{"experiments":[{"expId":"launch-us_foltopic_user-10","expPrefix":"us_foltopic_user","isDynamicallyUpdated":true,"isRuntime":false,"includeTriggerInfo":false}],"params":[{"id":"se_zu_onebox","type":"String","value":"0","chainId":"_all_"},{"id":"top_recall_exp_v2","type":"String","value":"1","chainId":"_all_"},{"id":"li_mceb","type":"String","value":"0","chainId":"_all_"},{"id":"li_qa_cover","type":"String","value":"old","chainId":"_all_"},{"id":"li_tjys_ec_ab","type":"String","value":"0","chainId":"_all_"},{"id":"li_ts_sample","type":"String","value":"old","chainId":"_all_"},{"id":"qa_test","type":"String","value":"0","chainId":"_all_"},{"id":"se_timebox_num","type":"String","value":"3","chainId":"_all_"},{"id":"web_answerlist_ad","type":"String","value":"0"},{"id":"se_webmajorob","type":"String","value":"0","chainId":"_all_"},{"id":"se_webrs","type":"String","value":"1","chainId":"_all_"},{"id":"qa_answerlist_ad","type":"String","value":"0","chainId":"_all_"},{"id":"se_featured","type":"String","value":"1","chainId":"_all_"},{"id":"se_movietab","type":"String","value":"0","chainId":"_all_"},{"id":"li_filter_ttl","type":"String","value":"2","chainId":"_all_"},{"id":"top_native_answer","type":"String","value":"1","chainId":"_all_"},{"id":"tp_sticky_android","type":"String","value":"0","chainId":"_all_"},{"id":"zr_ebook_chapter","type":"String","value":"0","chainId":"_all_"},{"id":"pf_creator_card","type":"String","value":"1","chainId":"_all_"},{"id":"pf_fuceng","type":"String","value":"1","chainId":"_all_"},{"id":"se_lottery","type":"String","value":"0","chainId":"_all_"},{"id":"tp_m_intro_re_topic","type":"String","value":"1","chainId":"_all_"},{"id":"tp_qa_toast","type":"String","value":"1","chainId":"_all_"},{"id":"tp_top_sticky","type":"String","value":"0","chainId":"_all_"},{"id":"ug_zero_follow_0","type":"String","value":"0","chainId":"_all_"},{"id":"li_ebook_detail","type":"String","value":"1","chainId":"_all_"},{"id":"ls_new_upload","type":"String","value":"0","chainId":"_all_"},{"id":"top_v_album","type":"String","value":"1","chainId":"_all_"},{"id":"se_topicdirect","type":"String","value":"2","chainId":"_all_"},{"id":"web_heifetz_grow_ad","type":"String","value":"1"},{"id":"zr_km_answer","type":"String","value":"open_cvr","chainId":"_all_"},{"id":"li_price_test","type":"String","value":"1","chainId":"_all_"},{"id":"se_billboardsearch","type":"String","value":"0","chainId":"_all_"},{"id":"se_subtext","type":"String","value":"0","chainId":"_all_"},{"id":"top_quality","type":"String","value":"0","chainId":"_all_"},{"id":"ls_fmp4","type":"String","value":"0","chainId":"_all_"},{"id":"se_payconsult","type":"String","value":"0","chainId":"_all_"},{"id":"top_gr_ab","type":"String","value":"0","chainId":"_all_"},{"id":"ug_zero_follow","type":"String","value":"0","chainId":"_all_"},{"id":"web_answer_update","type":"String","value":"0"},{"id":"zr_video_rec_weight","type":"String","value":"close","chainId":"_all_"},{"id":"top_root","type":"String","value":"0","chainId":"_all_"},{"id":"top_ydyq","type":"String","value":"X","chainId":"_all_"},{"id":"ug_fw_answ_aut_1","type":"String","value":"0","chainId":"_all_"},{"id":"zr_km_xgb_model","type":"String","value":"old","chainId":"_all_"},{"id":"se_agency","type":"String","value":" 0","chainId":"_all_"},{"id":"se_websearch","type":"String","value":"3","chainId":"_all_"},{"id":"tsp_lastread","type":"String","value":"0","chainId":"_all_"},{"id":"se_time_threshold","type":"String","value":"1.5","chainId":"_all_"},{"id":"ug_goodcomment","type":"String","value":"0","chainId":"_all_"},{"id":"zr_ans_rec","type":"String","value":"gbrank","chainId":"_all_"},{"id":"zr_km_slot_style","type":"String","value":"event_card","chainId":"_all_"},{"id":"zr_se_footer","type":"String","value":"1","chainId":"_all_"},{"id":"pf_feed","type":"String","value":"1","chainId":"_all_"},{"id":"se_ad_index","type":"String","value":"10","chainId":"_all_"},{"id":"top_vipconsume","type":"String","value":"1","chainId":"_all_"},{"id":"top_rank","type":"String","value":"0","chainId":"_all_"},{"id":"li_hot_score_ab","type":"String","value":"0","chainId":"_all_"},{"id":"se_amovietab","type":"String","value":"0","chainId":"_all_"},{"id":"se_search_feed","type":"String","value":"N","chainId":"_all_"},{"id":"li_se_intervene","type":"String","value":"1","chainId":"_all_"},{"id":"qa_web_answerlist_ad","type":"String","value":"1","chainId":"_all_"},{"id":"soc_bignew","type":"String","value":"1","chainId":"_all_"},{"id":"se_backsearch","type":"String","value":"0","chainId":"_all_"},{"id":"se_wannasearch","type":"String","value":"0","chainId":"_all_"},{"id":"li_lt_tp_score","type":"String","value":"1","chainId":"_all_"},{"id":"tp_sft","type":"String","value":"a","chainId":"_all_"},{"id":"web_rp_id","type":"String","value":"0"},{"id":"se_rr","type":"String","value":"0","chainId":"_all_"},{"id":"se_zu_recommend","type":"String","value":"0","chainId":"_all_"},{"id":"tp_time_information","type":"String","value":"0","chainId":"_all_"},{"id":"ug_newtag","type":"String","value":"0","chainId":"_all_"},{"id":"zr_album_chapter_exp","type":"String","value":"0","chainId":"_all_"},{"id":"gue_new_special_page","type":"String","value":"0"},{"id":"se_ios_spb309","type":"String","value":"0","chainId":"_all_"},{"id":"se_page_limit_20","type":"String","value":"1","chainId":"_all_"},{"id":"se_auto_syn","type":"String","value":"0","chainId":"_all_"},{"id":"soc_special","type":"String","value":"0","chainId":"_all_"},{"id":"tp_qa_metacard","type":"String","value":"1","chainId":"_all_"},{"id":"pf_foltopic_usernum","type":"String","value":"50","chainId":"_all_"},{"id":"se_title_only","type":"String","value":"0","chainId":"_all_"},{"id":"tsp_childbillboard","type":"String","value":"1","chainId":"_all_"},{"id":"top_new_feed","type":"String","value":"5","chainId":"_all_"},{"id":"top_reason","type":"String","value":"1","chainId":"_all_"},{"id":"top_recall_exp_v1","type":"String","value":"1","chainId":"_all_"},{"id":"zr_rel_search","type":"String","value":"base","chainId":"_all_"},{"id":"pf_noti_entry_num","type":"String","value":"0","chainId":"_all_"},{"id":"se_ri","type":"String","value":"0","chainId":"_all_"},{"id":"zr_infinity_rec_num","type":"String","value":"close","chainId":"_all_"},{"id":"se_expired_ob","type":"String","value":"0","chainId":"_all_"},{"id":"se_se_index","type":"String","value":"1","chainId":"_all_"},{"id":"se_whitelist","type":"String","value":"0","chainId":"_all_"},{"id":"ug_follow_topic_1","type":"String","value":"2","chainId":"_all_"},{"id":"top_ebook","type":"String","value":"0","chainId":"_all_"},{"id":"top_recall_deep_user","type":"String","value":"1","chainId":"_all_"},{"id":"top_test_4_liguangyi","type":"String","value":"1","chainId":"_all_"},{"id":"se_webtimebox","type":"String","value":"0","chainId":"_all_"},{"id":"top_universalebook","type":"String","value":"1","chainId":"_all_"},{"id":"zr_album_exp","type":"String","value":"0","chainId":"_all_"},{"id":"zr_art_rec","type":"String","value":"base","chainId":"_all_"},{"id":"se_preset_tech","type":"String","value":"0","chainId":"_all_"},{"id":"top_hotcommerce","type":"String","value":"1","chainId":"_all_"},{"id":"ug_follow_answerer","type":"String","value":"0","chainId":"_all_"},{"id":"tp_discussion_feed_type_android","type":"String","value":"2","chainId":"_all_"},{"id":"tp_qa_metacard_top","type":"String","value":"top","chainId":"_all_"},{"id":"tp_sft_v2","type":"String","value":" a","chainId":"_all_"},{"id":"li_album3_ab","type":"String","value":"0","chainId":"_all_"},{"id":"se_km_ad_locate","type":"String","value":"1","chainId":"_all_"},{"id":"se_likebutton","type":"String","value":"0","chainId":"_all_"},{"id":"tp_meta_card","type":"String","value":"0","chainId":"_all_"},{"id":"ug_follow_answerer_0","type":"String","value":"0","chainId":"_all_"},{"id":"web_question_invite","type":"String","value":"B"},{"id":"se_terminate","type":"String","value":"0","chainId":"_all_"},{"id":"soc_bigone","type":"String","value":"0","chainId":"_all_"},{"id":"top_user_cluster","type":"String","value":"0","chainId":"_all_"},{"id":"se_spb309","type":"String","value":"0","chainId":"_all_"},{"id":"soc_update","type":"String","value":"1","chainId":"_all_"},{"id":"tp_header_style","type":"String","value":"1","chainId":"_all_"},{"id":"ug_goodcomment_0","type":"String","value":"0","chainId":"_all_"},{"id":"pf_newguide_vertical","type":"String","value":"0","chainId":"_all_"},{"id":"se_colorfultab","type":"String","value":"0","chainId":"_all_"},{"id":"se_site_onebox","type":"String","value":"0","chainId":"_all_"},{"id":"se_famous","type":"String","value":"1","chainId":"_all_"},{"id":"se_p_slideshow","type":"String","value":"0","chainId":"_all_"},{"id":"web_column_auto_invite","type":"String","value":"0"},{"id":"se_new_topic","type":"String","value":"0","chainId":"_all_"},{"id":"web_answer_list_ad","type":"String","value":"1"},{"id":"gue_anonymous","type":"String","value":"hide"},{"id":"li_album_liutongab","type":"String","value":"0","chainId":"_all_"},{"id":"li_se_ebook_chapter","type":"String","value":"1","chainId":"_all_"}],"chains":[{"chainId":"_all_"}]},"triggers":{}},"userAgent":{"Edge":false,"Wechat":false,"Weibo":false,"QQ":false,"MQQBrowser":false,"Qzone":false,"Mobile":false,"Android":false,"iOS":false,"isAppleDevice":true,"Zhihu":false,"ZhihuHybrid":false,"isBot":false,"Tablet":false,"UC":false,"Sogou":false,"Qihoo":false,"Baidu":false,"BaiduApp":false,"Safari":false,"isWebView":false,"origin":"Mozilla\u002F5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit\u002F537.36 (KHTML, like Gecko) HeadlessChrome\u002F74.0.3729.169 Safari\u002F537.36"},"ctx":{"path":"\u002Fquestion\u002F327780925\u002Fanswer\u002F704644555"},"trafficSource":"production","edition":{"baidu":false,"sogou":false,"baiduBeijing":false},"theme":"light","enableShortcut":true,"referer":"","conf":{},"ipInfo":{},"logged":false,"tdkInfo":{}},"me":{"accountInfoLoadStatus":{},"organizationProfileStatus":{},"columnContributions":[]},"label":{"recognizerLists":{}},"comments":{"pagination":{},"collapsed":{},"reverse":{},"reviewing":{},"conversation":{},"parent":{}},"commentsV2":{"stickers":[],"commentWithPicPermission":{},"notificationsComments":{},"pagination":{},"collapsed":{},"reverse":{},"reviewing":{},"conversation":{},"conversationMore":{},"parent":{},"commentV2PostErr":{}},"pushNotifications":{"default":{"isFetching":false,"isDrained":false,"ids":[]},"follow":{"isFetching":false,"isDrained":false,"ids":[]},"vote_thank":{"isFetching":false,"isDrained":false,"ids":[]},"currentTab":"default","notificationsCount":{"default":0,"follow":0,"vote_thank":0}},"messages":{"data":{},"currentTab":"common","messageCount":0},"register":{"registerValidateSucceeded":null,"registerValidateErrors":{},"registerConfirmError":null,"sendDigitsError":null,"registerConfirmSucceeded":null},"login":{"loginUnregisteredError":false,"loginBindWechatError":false,"loginConfirmError":null,"sendDigitsError":null,"validateDigitsError":false,"loginConfirmSucceeded":null,"qrcodeLoginToken":"","qrcodeLoginScanStatus":0,"qrcodeLoginError":null,"qrcodeLoginReturnNewToken":false},"active":{"sendDigitsError":null,"activeConfirmSucceeded":null,"activeConfirmError":null},"switches":{},"captcha":{"captchaNeeded":false,"captchaValidated":false,"captchaBase64String":null,"captchaValidationMessage":null,"loginCaptchaExpires":false},"sms":{"supportedCountries":[]},"question":{"followers":{},"concernedFollowers":{},"answers":{},"hiddenAnswers":{},"updatedAnswers":{},"collapsedAnswers":{},"notificationAnswers":{},"invitationCandidates":{},"inviters":{},"invitees":{},"similarQuestions":{},"relatedCommodities":{},"recommendReadings":{},"bio":{},"brand":{},"permission":{},"adverts":{},"advancedStyle":{},"commonAnswerCount":0,"hiddenAnswerCount":0,"meta":{},"autoInvitation":{},"simpleConcernedFollowers":{},"draftStatus":{}},"shareTexts":{},"answers":{"voters":{},"copyrightApplicants":{},"favlists":{},"newAnswer":{},"concernedUpvoters":{},"simpleConcernedUpvoters":{},"paidContent":{}},"banner":{},"topic":{"bios":{},"hot":{},"newest":{},"top":{},"unanswered":{},"questions":{},"followers":{},"contributors":{},"parent":{},"children":{},"bestAnswerers":{},"wikiMeta":{},"index":{},"intro":{},"meta":{},"schema":{},"creatorWall":{},"wikiEditInfo":{},"committedWiki":{}},"explore":{"recommendations":{}},"articles":{"voters":{}},"favlists":{"relations":{}},"pins":{"voters":{}},"topstory":{"topstorys":{"isFetching":false,"isDrained":false,"afterId":0,"items":[],"next":null},"recommend":{"isFetching":false,"isDrained":false,"afterId":0,"items":[],"next":null},"follow":{"isFetching":false,"isDrained":false,"afterId":0,"items":[],"next":null},"followWonderful":{"isFetching":false,"isDrained":false,"afterId":0,"items":[],"next":null},"sidebar":null,"announcement":{},"hotList":[],"guestFeeds":{"isFetching":false,"isDrained":false,"afterId":0,"items":[],"next":null},"followExtra":{"isNewUser":null,"isFetched":false,"followCount":0,"followers":[]}},"upload":{},"video":{"data":{},"shareVideoDetail":{},"last":{}},"guide":{"guide":{"isFetching":false,"isShowGuide":false}},"reward":{"answer":{},"article":{},"question":{}},"search":{"recommendSearch":[],"topSearch":{},"attachedInfo":{},"nextOffset":{},"topicReview":{},"generalByQuery":{},"generalByQueryInADay":{},"generalByQueryInAWeek":{},"generalByQueryInThreeMonths":{},"peopleByQuery":{},"topicByQuery":{},"columnByQuery":{},"liveByQuery":{},"albumByQuery":{},"eBookByQuery":{}},"creator":{"currentCreatorUrlToken":null,"homeData":{"recommendQuestions":[]},"tools":{"question":{"invitationCount":{"questionFolloweeCount":0,"questionTotalCount":0},"goodatTopics":[]},"customPromotion":{"itemLists":{}},"recommend":{"recommendTimes":{}}},"explore":{"academy":{"tabs":[],"article":{}}},"rights":[],"rightsStatus":{},"levelUpperLimit":10,"account":{"growthLevel":{}}},"publicEditPermission":{},"readStatus":{},"draftHistory":{"history":{},"drafts":{}},"chat":{"chats":{},"inbox":{"recents":{"isFetching":false,"isDrained":false,"isPrevDrained":false,"result":[],"next":null,"key":null,"name":"recents"},"strangers":{"isFetching":false,"isDrained":false,"isPrevDrained":false,"result":[],"next":null,"key":null,"name":"strangers"},"friends":{"isFetching":false,"isDrained":false,"isPrevDrained":false,"result":[],"next":null,"key":null,"name":"friends"},"config":{"newCount":0,"strangerMessageSwitch":false,"strangerMessageUnread":false}}},"notifications":{"recent":{"isFetching":false,"isDrained":false,"isPrevDrained":false,"result":[],"next":null,"key":null},"history":{"isFetching":false,"isDrained":false,"isPrevDrained":false,"result":[],"next":null,"key":null},"notificationActors":{"isFetching":false,"isDrained":false,"isPrevDrained":false,"result":[],"next":null,"key":null},"recentNotificationEntry":"all"},"emoticons":{"emoticonGroupList":[],"emoticonGroupDetail":{}}},"subAppName":"main"}</script>
+  <script src="https://static.zhihu.com/heifetz/vendor.5a9436bdf379e6d36200.js"></script>
+  <script src="https://static.zhihu.com/heifetz/main.app.4ee6711f308cd9cc1af2.js"></script>
+  <script src="https://static.zhihu.com/heifetz/main.question-routes.47adaacd74a4f8fcf201.js"></script>
+  <div>
+    <div style="display: none;">想来知乎工作？请发送邮件到 jobs@zhihu.com</div>
+  </div>
+  <script src="//unpkg.zhimg.com/za-js-sdk@latest/dist/zap.js"></script>
+</body>
+
+</html>
