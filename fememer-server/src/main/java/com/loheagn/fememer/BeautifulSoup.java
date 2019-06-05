@@ -119,7 +119,6 @@ public class BeautifulSoup {
 
     public static void main(String[] args) throws Exception {
         String url = "https://mp.weixin.qq.com/s/nroHdViXC7tLgJioojupWw";
-        ChromeHeadless chromeHeadless = new ChromeHeadless();
         BeautifulSoup beautifulSoup = new BeautifulSoup();
 
         beautifulSoup.getAndStoreWeixinArticle(url);
