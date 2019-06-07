@@ -11,3 +11,5 @@ buildNumber.properties
 .vscode/*
 .vscode
 .DS_Store
+.idea/*
+*/.idea/*

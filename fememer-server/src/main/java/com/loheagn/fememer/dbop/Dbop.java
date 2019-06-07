@@ -101,8 +101,38 @@ public class Dbop {
         }
     }
 
+    /**
+     * 向数据库中插入一个新的用户 本方法不负责校验用户名是否重复
+     * 
+     * @param name     用户名
+     * @param password 用户密码
+     * @return
+     */
+    public int insertUser(String name, String password) {
+        try {
+            ConnectDatabase();
+            statement.execute(String.format(
+                    "insert into userINFO (userName, password, signTime) values ('%s','%s', datetime(CURRENT_TIMESTAMP,'localtime'))",
+                    name, password));
+            ResultSet resultSet = statement
+                    .executeQuery(String.format("select * from userINFO where userName='%s'", name));
+            return resultSet.getInt(1);
+        } catch (NullPointerException nullPointerException) {
+            nullPointerException.printStackTrace();
+            return -1;
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+            return -1;
+        } catch (ClassNotFoundException classNotFoundException) {
+            classNotFoundException.printStackTrace();
+            return -1;
+        } finally {
+            CloseDateabase();
+        }
+    }
+
     public static void main(String[] args) {
-        System.out.println(new Dbop().getUserByName("15131049"));
+        System.out.println(new Dbop().insertUser("name4", "password"));
     }
 
 }

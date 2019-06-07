@@ -15,12 +15,12 @@
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>Hello</servlet-name>
-    <servlet-class>com.loheagn.fememer.HelloWorld</servlet-class>
+    <servlet-name>Register</servlet-name>
+    <servlet-class>com.loheagn.fememer.servlets.RegisterServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Hello</servlet-name>
-    <url-pattern>/hello</url-pattern>
+    <servlet-name>Register</servlet-name>
+    <url-pattern>/register</url-pattern>
   </servlet-mapping>
 
 </web-app>
