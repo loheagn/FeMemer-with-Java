@@ -64,6 +64,11 @@ public class BeautifulSoup {
         return imgElement;
     }
 
+    /**
+     * 根据url爬取微信文章，并存储在合适的位置。
+     * 
+     * @param url
+     */
     public void getAndStoreWeixinArticle(String url) {
         File dir = new File(weixinPath + System.currentTimeMillis());
         dir.mkdir();
