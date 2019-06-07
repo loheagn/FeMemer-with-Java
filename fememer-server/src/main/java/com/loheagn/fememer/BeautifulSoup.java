@@ -10,7 +10,7 @@ import org.jsoup.select.Elements;
  */
 public class BeautifulSoup {
 
-    static String weixinPath = "weixin/";
+    static String weixinPath = "src/main/webapp/weixin/";
     static String zhihuPath = "zhihu/";
     Long img_count = 0L;
     ChromeHeadless chromeHeadless = new ChromeHeadless();
