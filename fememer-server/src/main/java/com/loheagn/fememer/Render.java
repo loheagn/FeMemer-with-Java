@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import freemarker.template.*;
+import com.loheagn.fememer.tools.*;
 
 /**
  * Render
@@ -15,11 +16,11 @@ public class Render {
         try {
             // 初始化
             Configuration configuration = new Configuration(Configuration.VERSION_2_3_28);
-            configuration.setDirectoryForTemplateLoading(new File("templates"));
+            configuration.setDirectoryForTemplateLoading(new File(Values.getWebappPath()));
             configuration.setDefaultEncoding("UTF-8");
             configuration.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
 
-            Template template = configuration.getTemplate("main.html");
+            Template template = configuration.getTemplate("templates/main.html");
             Writer writer = new StringWriter();
             template.process(objects, writer);
             return writer.toString();
