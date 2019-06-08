@@ -32,4 +32,22 @@
     <url-pattern>/addarticle</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>DeleteUser</servlet-name>
+    <servlet-class>com.loheagn.fememer.servlets.DeleteUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteUser</servlet-name>
+    <url-pattern>/deleteuser</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>SelectArtile</servlet-name>
+    <servlet-class>com.loheagn.fememer.servlets.SelectArticleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SelectArtile</servlet-name>
+    <url-pattern>/selectarticle</url-pattern>
+  </servlet-mapping>
+
 </web-app>

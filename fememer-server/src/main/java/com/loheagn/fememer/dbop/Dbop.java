@@ -1,6 +1,8 @@
 package com.loheagn.fememer.dbop;
 
 import java.sql.*;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Dbop
@@ -163,6 +165,112 @@ public class Dbop {
         } finally {
             CloseDateabase();
         }
+    }
+
+    /**
+     * 根据传入的用户id在数据库中删除该用户
+     * 
+     * @param id 用户id
+     * @return 如果删除用户成功，那么返回真，否则返回假
+     */
+    public boolean deleteUserByID(int id) {
+        try {
+            ConnectDatabase();
+            statement.execute(String.format("delete from userINFO where id=%d", id));
+            return true;
+        } catch (NullPointerException nullPointerException) {
+            nullPointerException.printStackTrace();
+            return false;
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+            return false;
+        } catch (ClassNotFoundException classNotFoundException) {
+            classNotFoundException.printStackTrace();
+            return false;
+        } finally {
+            CloseDateabase();
+        }
+    }
+
+    /**
+     * 根据传入的用户id，在数据库中查找所有属于该用户的文章
+     * 
+     * @param id 传入的用户id
+     * @return 返回找到的文章的集合
+     */
+    public List<Article> selectAllArticlesByID(int id) {
+        List<Article> list = new ArrayList<Article>();
+        list.clear();
+        try {
+            ConnectDatabase();
+            ResultSet resultSet = statement.executeQuery("select * from articleINFO where id=" + id);
+            while (resultSet.next()) {
+                list.add(generateArticleFromResault(resultSet));
+            }
+            return list;
+        } catch (NullPointerException nullPointerException) {
+            nullPointerException.printStackTrace();
+            return null;
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+            return null;
+        } catch (ClassNotFoundException classNotFoundException) {
+            classNotFoundException.printStackTrace();
+            return null;
+        } finally {
+            CloseDateabase();
+        }
+    }
+
+    /**
+     * 根据传入的用户id，查找相应类别的文章
+     * 
+     * @param id
+     * @param source 查询时指定的文章来源，比如微信、知乎、豆瓣等等
+     * @return
+     */
+    public List<Article> selectArticlesByIDAndSource(int id, String source) {
+        List<Article> list = new ArrayList<Article>();
+        list.clear();
+        try {
+            ConnectDatabase();
+            ResultSet resultSet = statement
+                    .executeQuery("select * from articleINFO where id=" + id + " and source='" + source + "'");
+            while (resultSet.next()) {
+                list.add(generateArticleFromResault(resultSet));
+            }
+            return list;
+        } catch (NullPointerException nullPointerException) {
+            nullPointerException.printStackTrace();
+            return null;
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+            return null;
+        } catch (ClassNotFoundException classNotFoundException) {
+            classNotFoundException.printStackTrace();
+            return null;
+        } finally {
+            CloseDateabase();
+        }
+    }
+
+    /**
+     * 根据从数据库中的查询到的一条记录生成一个文章对象
+     * 
+     * @param resultSet 从数据库中得到的一条文章信息的记录
+     * @return 生成的文章对象
+     * @throws SQLException
+     */
+    private Article generateArticleFromResault(ResultSet resultSet) throws SQLException {
+        int id = resultSet.getInt(1);
+        String source = resultSet.getString(2);
+        String title = resultSet.getString(3);
+        String webUrl = resultSet.getString(4);
+        String localUrl = resultSet.getString(5);
+        String downloaded = resultSet.getString(6);
+        long addTime = resultSet.getLong(7);
+        String tag = resultSet.getString(8);
+        return new Article(id, source, title, webUrl, localUrl, downloaded, addTime, tag);
     }
 
     public static void main(String[] args) {
