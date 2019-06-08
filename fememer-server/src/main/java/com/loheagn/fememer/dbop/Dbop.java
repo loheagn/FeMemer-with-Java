@@ -3,6 +3,7 @@ package com.loheagn.fememer.dbop;
 import java.sql.*;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  * Dbop
@@ -128,6 +129,32 @@ public class Dbop {
         } catch (ClassNotFoundException classNotFoundException) {
             classNotFoundException.printStackTrace();
             return -1;
+        } finally {
+            CloseDateabase();
+        }
+    }
+
+    /**
+     * 用于用户更新密码
+     * 
+     * @param name     用户的邮箱（即用户名）
+     * @param password 用户的密码
+     * @return 如果更新成功，那么返回真，否则返回假
+     */
+    public boolean updateUser(String name, String password) {
+        try {
+            ConnectDatabase();
+            statement.execute(String.format("update userINFO set password='%s' where userName='%s'", password, name));
+            return true;
+        } catch (NullPointerException nullPointerException) {
+            nullPointerException.printStackTrace();
+            return false;
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+            return false;
+        } catch (ClassNotFoundException classNotFoundException) {
+            classNotFoundException.printStackTrace();
+            return false;
         } finally {
             CloseDateabase();
         }
@@ -373,6 +400,39 @@ public class Dbop {
                 list.add(generateArticleFromResault(resultSet));
             }
             return list;
+        } catch (NullPointerException nullPointerException) {
+            nullPointerException.printStackTrace();
+            return null;
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+            return null;
+        } catch (ClassNotFoundException classNotFoundException) {
+            classNotFoundException.printStackTrace();
+            return null;
+        } finally {
+            CloseDateabase();
+        }
+    }
+
+    /**
+     * 从数据库中查找该用户设置的所有文章标签
+     * 
+     * @param id 用户ID
+     * @return 返回所有标签组成的列表
+     */
+    public List<String> getAllTags(int id) {
+        try {
+            List<String> tags = new ArrayList<String>();
+            tags.clear();
+            ConnectDatabase();
+            ResultSet resultSet = statement.executeQuery("select tag from articleINFO where id=" + id);
+            while (resultSet.next()) {
+                tags.add(resultSet.getString("tag"));
+            }
+            HashSet<String> hashTags = new HashSet<String>(tags);
+            tags.clear();
+            tags.addAll(hashTags);
+            return tags;
         } catch (NullPointerException nullPointerException) {
             nullPointerException.printStackTrace();
             return null;

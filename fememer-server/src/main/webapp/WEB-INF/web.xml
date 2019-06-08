@@ -86,4 +86,22 @@
     <url-pattern>/searcharticle</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>UpdateUser</servlet-name>
+    <servlet-class>com.loheagn.fememer.servlets.UpdateUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateUser</servlet-name>
+    <url-pattern>/updateuser</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>GetAllTags</servlet-name>
+    <servlet-class>com.loheagn.fememer.servlets.GetAllTagsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetAllTags</servlet-name>
+    <url-pattern>/getalltags</url-pattern>
+  </servlet-mapping>
+
 </web-app>
