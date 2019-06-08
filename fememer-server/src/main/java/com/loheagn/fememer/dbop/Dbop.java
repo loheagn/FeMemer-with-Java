@@ -131,8 +131,42 @@ public class Dbop {
         }
     }
 
+    /**
+     * 根据传入的信息，向数据库中插入一篇文章的信息
+     * 
+     * @param id       文章所属用户的id
+     * @param source   文章的来源类别
+     * @param title    文章的标题
+     * @param webUrl   文章的互联网链接
+     * @param localUrl 文章在服务器上的本地位置
+     * @return 如果向数据库插入成功，那么返回一个文章对象
+     */
+    public Article insertArticle(int id, String source, String title, String webUrl, String localUrl) {
+        String download = "F";
+        String tag = "默认";
+        long addTime = System.currentTimeMillis() / 1000l;
+        try {
+            ConnectDatabase();
+            statement.execute(String.format(
+                    "insert into articleINFO (id, source, title, web_url, local_url, is_downloaded, add_time, tag) values (%d , '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+                    id, source, title, webUrl, localUrl, download, Long.toString(addTime), tag));
+            return new Article(id, source, title, webUrl, localUrl, download, addTime, tag);
+        } catch (NullPointerException nullPointerException) {
+            nullPointerException.printStackTrace();
+            return null;
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+            return null;
+        } catch (ClassNotFoundException classNotFoundException) {
+            classNotFoundException.printStackTrace();
+            return null;
+        } finally {
+            CloseDateabase();
+        }
+    }
+
     public static void main(String[] args) {
-        System.out.println(new Dbop().insertUser("name4", "password"));
+        System.out.println(new Dbop().insertArticle(1, "source", "title", "webUrl", "localUrl"));
     }
 
 }

@@ -1,6 +1,7 @@
 package com.loheagn.fememer;
 
 import java.io.*;
+import java.util.*;
 import org.jsoup.*;
 import org.jsoup.nodes.*;
 import org.jsoup.select.Elements;
@@ -11,7 +12,7 @@ import com.loheagn.fememer.tools.*;
  */
 public class BeautifulSoup {
 
-    static String weixinPath = "src/main/webapp/weixin/";
+    static String weixinPath = "/weixin/";
     static String zhihuPath = "zhihu/";
     Long img_count = 0L;
     ChromeHeadless chromeHeadless = new ChromeHeadless();
@@ -21,6 +22,23 @@ public class BeautifulSoup {
 
     public BeautifulSoup(String chromeDriverPath, String chromePath) {
         chromeHeadless = new ChromeHeadless(chromeDriverPath, chromePath);
+    }
+
+    /**
+     * 根据传入的数据构造一个hashmap
+     * 
+     * @param localUrl 文章本地的位置
+     * @param source   文章的来源类别
+     * @param title    文章的标题
+     * @return
+     */
+    private Map<String, String> returnArticleMap(String localUrl, String source, String title) {
+        Map<String, String> returnData = new HashMap<String, String>();
+        returnData.clear();
+        returnData.put("source", source);
+        returnData.put("title", title);
+        returnData.put("localUrl", localUrl);
+        return returnData;
     }
 
     /**
@@ -70,7 +88,7 @@ public class BeautifulSoup {
      * 
      * @param url 用户传入的微信公众号的文章链接
      */
-    public void getAndStoreWeixinArticle(String url) {
+    public Map<String, String> getAndStoreWeixinArticle(String url) {
         weixinPath = Values.getWebappPath() + weixinPath;
         File dir = new File(weixinPath + System.currentTimeMillis());
         dir.mkdir();
@@ -122,6 +140,7 @@ public class BeautifulSoup {
                 }
             }
         }
+        return returnArticleMap("weixin/" + dir.getName(), "weixin", title);
     }
 
     public static void main(String[] args) throws Exception {

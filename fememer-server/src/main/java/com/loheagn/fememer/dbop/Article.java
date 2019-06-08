@@ -6,18 +6,18 @@ package com.loheagn.fememer.dbop;
 public class Article {
 
     private int id;
-    private String url;
+    private String source;
     private String title;
     private String webUrl;
     private String localUrl;
-    private boolean downloaded;
+    private String downloaded;
     private long addTime;
     private String tag;
 
-    public Article(int id, String url, String title, String webUrl, String localUrl, boolean downloaded, long addTime,
+    public Article(int id, String source, String title, String webUrl, String localUrl, String downloaded, long addTime,
             String tag) {
         this.id = id;
-        this.url = url;
+        this.source = source;
         this.title = title;
         this.webUrl = webUrl;
         this.localUrl = localUrl;
@@ -34,12 +34,18 @@ public class Article {
         this.id = id;
     }
 
-    public String getUrl() {
-        return this.url;
+    /**
+     * @param source the source to set
+     */
+    public void setSource(String source) {
+        this.source = source;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    /**
+     * @return the source
+     */
+    public String getSource() {
+        return source;
     }
 
     public String getTitle() {
@@ -66,24 +72,26 @@ public class Article {
         this.localUrl = localUrl;
     }
 
-    public boolean isDownloaded() {
+    public String getDownloaded() {
         return this.downloaded;
     }
 
-    public boolean getDownloaded() {
-        return this.downloaded;
-    }
-
-    public void setDownloaded(boolean downloaded) {
+    public void setDownloaded(String downloaded) {
         this.downloaded = downloaded;
     }
 
-    public long getAddTime() {
-        return this.addTime;
-    }
-
+    /**
+     * @param addTime the addTime to set
+     */
     public void setAddTime(long addTime) {
         this.addTime = addTime;
+    }
+
+    /**
+     * @return the addTime
+     */
+    public long getAddTime() {
+        return addTime;
     }
 
     public String getTag() {
@@ -92,6 +100,11 @@ public class Article {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    @Override
+    public String toString() {
+        return Long.toString(addTime);
     }
 
 }

@@ -2,7 +2,9 @@ package com.loheagn.fememer.servlets;
 
 import javax.servlet.http.HttpServlet;
 import com.loheagn.fememer.dbop.Dbop;
-import com.loheagn.fememer.tools.Values;;
+import com.loheagn.fememer.tools.Values;
+
+import com.loheagn.fememer.*;
 
 /**
  * MyServlet
@@ -13,4 +15,5 @@ public class MyServlet extends HttpServlet {
 
     Dbop dbop = new Dbop();
     Values values = new Values();
+    BeautifulSoup beautifulSoup = new BeautifulSoup();
 }

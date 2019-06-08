@@ -23,4 +23,13 @@
     <url-pattern>/register</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>AddArticle</servlet-name>
+    <servlet-class>com.loheagn.fememer.servlets.AddArticleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddArticle</servlet-name>
+    <url-pattern>/addarticle</url-pattern>
+  </servlet-mapping>
+
 </web-app>
