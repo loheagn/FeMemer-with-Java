@@ -326,6 +326,34 @@ public class Dbop {
         }
     }
 
+    /**
+     * 根据用户id和文章标题，找到文章，然后更新其标签
+     * 
+     * @param id
+     * @param title
+     * @param tag   用户自己设置的新标签
+     * @return 如果修改成功，返回真，否则返回假
+     */
+    public boolean updateTagBytitleAndTitle(int id, String title, String tag) {
+        try {
+            ConnectDatabase();
+            statement.execute(
+                    String.format("update articleINFO set tag='%s' where id=%d and title='%s'", tag, id, title));
+            return true;
+        } catch (NullPointerException nullPointerException) {
+            nullPointerException.printStackTrace();
+            return false;
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+            return false;
+        } catch (ClassNotFoundException classNotFoundException) {
+            classNotFoundException.printStackTrace();
+            return false;
+        } finally {
+            CloseDateabase();
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println(new Dbop().insertArticle(1, "source", "title", "webUrl", "localUrl"));
     }

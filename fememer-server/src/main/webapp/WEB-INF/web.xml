@@ -68,4 +68,13 @@
     <url-pattern>/deletearticle</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>UpdateTag</servlet-name>
+    <servlet-class>com.loheagn.fememer.servlets.UpdateTagServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateTag</servlet-name>
+    <url-pattern>/updatetag</url-pattern>
+  </servlet-mapping>
+
 </web-app>
