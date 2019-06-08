@@ -59,4 +59,13 @@
     <url-pattern>/getarticle</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>DeleteArticle</servlet-name>
+    <servlet-class>com.loheagn.fememer.servlets.DeleteArticleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteArticle</servlet-name>
+    <url-pattern>/deletearticle</url-pattern>
+  </servlet-mapping>
+
 </web-app>

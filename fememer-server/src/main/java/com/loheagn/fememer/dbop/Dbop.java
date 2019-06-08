@@ -300,6 +300,32 @@ public class Dbop {
         }
     }
 
+    /**
+     * 根据传入的用户id和文章标题，删除相应文章，若删除成功，则返回真，否则返回假
+     * 
+     * @param id
+     * @param title
+     * @return
+     */
+    public boolean deleteArticleByIDAndTitle(int id, String title) {
+        try {
+            ConnectDatabase();
+            statement.execute(String.format("delete from articleINFO where id=%d and title='%s'", id, title));
+            return true;
+        } catch (NullPointerException nullPointerException) {
+            nullPointerException.printStackTrace();
+            return false;
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+            return false;
+        } catch (ClassNotFoundException classNotFoundException) {
+            classNotFoundException.printStackTrace();
+            return false;
+        } finally {
+            CloseDateabase();
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println(new Dbop().insertArticle(1, "source", "title", "webUrl", "localUrl"));
     }
