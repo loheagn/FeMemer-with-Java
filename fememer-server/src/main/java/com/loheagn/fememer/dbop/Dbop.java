@@ -354,6 +354,39 @@ public class Dbop {
         }
     }
 
+    /**
+     * 根据用户传入的id，按照相应的关键词找到符合要求的文章，并返回文章列表
+     * 
+     * @param id   用户ID
+     * @param word 搜索关键词
+     * @return
+     */
+    public List<Article> searchArticles(int id, String word) {
+        List<Article> list = new ArrayList<Article>();
+        list.clear();
+        try {
+            ConnectDatabase();
+            ResultSet resultSet = statement.executeQuery(String.format(
+                    "select * from articleINFO where (id=%d and title like '%%%s%%') or (tag like '%%%s%%' and id=%d)",
+                    id, word, word, id));
+            while (resultSet.next()) {
+                list.add(generateArticleFromResault(resultSet));
+            }
+            return list;
+        } catch (NullPointerException nullPointerException) {
+            nullPointerException.printStackTrace();
+            return null;
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+            return null;
+        } catch (ClassNotFoundException classNotFoundException) {
+            classNotFoundException.printStackTrace();
+            return null;
+        } finally {
+            CloseDateabase();
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println(new Dbop().insertArticle(1, "source", "title", "webUrl", "localUrl"));
     }

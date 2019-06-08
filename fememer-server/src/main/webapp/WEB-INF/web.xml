@@ -77,4 +77,13 @@
     <url-pattern>/updatetag</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>SearchArticle</servlet-name>
+    <servlet-class>com.loheagn.fememer.servlets.SearchArticlesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchArticle</servlet-name>
+    <url-pattern>/searcharticle</url-pattern>
+  </servlet-mapping>
+
 </web-app>
