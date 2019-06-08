@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.*;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.alibaba.fastjson.JSON;
@@ -16,21 +15,22 @@ import com.loheagn.fememer.dbop.*;
 /**
  * LoginServlat
  */
-public class LoginServlet extends HttpServlet {
+public class LoginServlet extends MyServlet {
 
     private static final long serialVersionUID = 3167196807814576347L;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        values.setWebappPath(request.getSession().getServletContext().getRealPath("/"));
         String name = request.getParameter("userName");
         Map<String, Object> responseData = new HashMap<String, Object>();
         responseData.clear();
-        if (!new Dbop().thereIsThisUser(name)) {
+        if (!dbop.thereIsThisUser(name)) {
             responseData.put("flag", "404");
         } else {
             String password = request.getParameter("password");
-            User user = new Dbop().getUserByName(name);
+            User user = dbop.getUserByName(name);
             if (user == null) {
                 responseData.put("flag", "500");
             } else if (password.equals(user.getPassword())) {
