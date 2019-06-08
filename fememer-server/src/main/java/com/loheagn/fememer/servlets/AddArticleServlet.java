@@ -33,7 +33,7 @@ public class AddArticleServlet extends MyServlet {
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             OutputStream outputStream = response.getOutputStream();
-            outputStream.write(JSON.toJSONString(article).getBytes("UTF-8"));
+            outputStream.write(JSON.toJSONString(article.convertToMap()).getBytes("UTF-8"));
             outputStream.close();
         } else {
             response.setContentType("text/html");

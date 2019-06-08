@@ -26,7 +26,7 @@ public class GetArticleServlet extends MyServlet {
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             OutputStream outputStream = response.getOutputStream();
-            outputStream.write(JSON.toJSONString(responseData).getBytes("UTF-8"));
+            outputStream.write(JSON.toJSONString(responseData.convertToMap()).getBytes("UTF-8"));
             outputStream.close();
         } else {
             response.setContentType("text/html");

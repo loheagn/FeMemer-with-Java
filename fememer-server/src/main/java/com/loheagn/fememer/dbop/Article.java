@@ -1,5 +1,8 @@
 package com.loheagn.fememer.dbop;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Article
  */
@@ -105,6 +108,25 @@ public class Article {
     @Override
     public String toString() {
         return Long.toString(addTime);
+    }
+
+    /**
+     * 将Article对象转化为map变量，主要是结局转化成json时候的问题
+     * 
+     * @return
+     */
+    public Map<String, Object> convertToMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.clear();
+        map.put("id", id);
+        map.put("source", source);
+        map.put("title", title);
+        map.put("web_url", webUrl);
+        map.put("local_url", localUrl);
+        map.put("is_downloaded", downloaded);
+        map.put("add_time", addTime);
+        map.put("tag", tag);
+        return map;
     }
 
 }
