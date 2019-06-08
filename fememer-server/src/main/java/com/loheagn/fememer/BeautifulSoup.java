@@ -4,6 +4,7 @@ import java.io.*;
 import org.jsoup.*;
 import org.jsoup.nodes.*;
 import org.jsoup.select.Elements;
+import com.loheagn.fememer.tools.*;
 
 /**
  * BeautifulSoup
@@ -67,9 +68,10 @@ public class BeautifulSoup {
     /**
      * 根据url爬取微信文章，并存储在合适的位置。
      * 
-     * @param url
+     * @param url 用户传入的微信公众号的文章链接
      */
     public void getAndStoreWeixinArticle(String url) {
+        weixinPath = Values.getWebappPath() + weixinPath;
         File dir = new File(weixinPath + System.currentTimeMillis());
         dir.mkdir();
         File imageDir = new File(weixinPath + dir.getName() + "/images");

@@ -17,7 +17,7 @@ public class Values {
     /**
      * @return the webappPath
      */
-    public String getWebappPath() {
+    public static String getWebappPath() {
         return webappPath;
     }
 }
