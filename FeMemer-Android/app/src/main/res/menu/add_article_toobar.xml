@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/add_toolbarEdit"
+        app:showAsAction="always"
+        android:title="输入"
+        android:actionLayout="@layout/add_edit_text"
+        />
+    <item android:id="@+id/ensure"
+        app:showAsAction="always"
+        android:title="添加"
+        android:actionLayout="@layout/add_ensure_button"/>
+
+
+</menu>

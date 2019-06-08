@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.example.linan.fememer.AddArticleActivity</OriginalElement>
+  <nodes>
+    <node x="1433.4166666666667" y="0.0">android.content.Context</node>
+    <node x="2530.416666666667" y="7467.5">android.view.KeyEvent.Callback</node>
+    <node x="1031.6666666666667" y="13793.0">android.support.v4.app.ActivityCompat.RequestPermissionsRequestCodeValidator</node>
+    <node x="3332.416666666667" y="5914.5">android.content.ComponentCallbacks</node>
+    <node x="1412.6666666666667" y="13793.0">android.arch.lifecycle.ViewModelStoreOwner</node>
+    <node x="1039.9166666666667" y="7502.0">android.view.LayoutInflater.Factory2</node>
+    <node x="1837.6666666666667" y="13711.0">android.support.v4.app.SupportActivity</node>
+    <node x="1405.75" y="16132.0">android.support.v4.app.FragmentActivity.HostCallbacks</node>
+    <node x="1875.4166666666667" y="14807.5">android.support.v4.app.SupportActivity.ExtraData</node>
+    <node x="1989.4166666666667" y="7226.0">android.view.Window.Callback</node>
+    <node x="542.25" y="16973.0">com.example.linan.fememer.AddArticleActivity</node>
+    <node x="1605.4166666666667" y="7397.5">android.view.ContextThemeWrapper</node>
+    <node x="0.0" y="14807.5">android.support.v4.app.TaskStackBuilder.SupportParentable</node>
+    <node x="1433.4166666666667" y="4729.0">android.content.ContextWrapper</node>
+    <node x="2860.416666666667" y="7502.0">android.view.View.OnCreateContextMenuListener</node>
+    <node x="1683.6666666666667" y="13735.0">android.support.annotation.RestrictTo.Scope</node>
+    <node x="644.6666666666667" y="13793.0">android.support.v4.app.ActivityCompat.OnRequestPermissionsResultCallback</node>
+    <node x="724.0" y="14807.5">android.support.v7.app.ActionBarDrawerToggle.DelegateProvider</node>
+    <node x="1083.75" y="16270.0">android.support.v4.app.FragmentActivity.NonConfigurationInstances</node>
+    <node x="272.0" y="14784.5">android.support.v7.app.AppCompatCallback</node>
+    <node x="2011.1666666666667" y="10744.5">android.arch.lifecycle.LifecycleOwner</node>
+    <node x="448.75" y="15740.0">android.support.v7.app.AppCompatActivity</node>
+    <node x="3341.416666666667" y="7421.0">android.content.ComponentCallbacks2</node>
+    <node x="1522.2470238095239" y="10744.5">android.support.annotation.RestrictTo</node>
+    <node x="1057.4166666666667" y="5926.0">android.view.LayoutInflater.Factory</node>
+    <node x="1072.4166666666667" y="13978.0">android.support.v4.app.FragmentActivity</node>
+    <node x="2184.166666666667" y="7891.0">android.app.Activity</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="android.view.ContextThemeWrapper" target="android.content.ContextWrapper">
+      <point x="0.0" y="-131.0" />
+      <point x="0.0" y="1223.5" />
+    </edge>
+    <edge source="android.support.v4.app.FragmentActivity" target="android.support.v4.app.ActivityCompat.RequestPermissionsRequestCodeValidator">
+      <point x="-75.625" y="-856.0" />
+      <point x="1299.2916666666667" y="13958.0" />
+      <point x="1212.1666666666667" y="13958.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="android.support.v7.app.AppCompatActivity" target="android.support.v4.app.FragmentActivity">
+      <point x="163.5" y="-591.5" />
+      <point x="830.25" y="15720.0" />
+      <point x="1173.25" y="15720.0" />
+      <point x="-201.66666666666674" y="856.0" />
+    </edge>
+    <edge source="android.app.Activity" target="android.view.View.OnCreateContextMenuListener">
+      <point x="141.75" y="-2880.0" />
+      <point x="2609.416666666667" y="7861.0" />
+      <point x="3090.916666666667" y="7861.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="android.support.v4.app.FragmentActivity" target="android.arch.lifecycle.ViewModelStoreOwner">
+      <point x="75.625" y="-856.0" />
+      <point x="1450.5416666666667" y="13958.0" />
+      <point x="1537.6666666666667" y="13958.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="android.support.v4.app.SupportActivity.ExtraData" target="android.support.annotation.RestrictTo">
+      <point x="-33.75" y="-26.5" />
+      <point x="1909.1666666666667" y="13948.0" />
+      <point x="1673.1666666666667" y="13948.0" />
+      <point x="1673.1666666666667" y="13691.0" />
+      <point x="1579.9970238095239" y="13691.0" />
+      <point x="-19.25" y="26.5" />
+    </edge>
+    <edge source="android.content.ComponentCallbacks2" target="android.content.ComponentCallbacks">
+      <point x="0.0" y="-107.5" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="android.app.Activity" target="android.view.LayoutInflater.Factory2">
+      <point x="-236.25" y="-2880.0" />
+      <point x="2231.416666666667" y="7871.0" />
+      <point x="1235.4166666666667" y="7871.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="android.support.v4.app.SupportActivity.ExtraData" target="android.support.v4.app.SupportActivity">
+      <point x="33.75" y="-26.5" />
+      <point x="1976.6666666666667" y="13958.0" />
+      <point x="2212.666666666667" y="13958.0" />
+      <point x="125.0" y="108.5" />
+    </edge>
+    <edge source="android.support.v4.app.ActivityCompat.RequestPermissionsRequestCodeValidator" target="android.support.annotation.RestrictTo">
+      <point x="0.0" y="-26.5" />
+      <point x="1212.1666666666667" y="13691.0" />
+      <point x="1541.4970238095239" y="13691.0" />
+      <point x="-57.75" y="26.5" />
+    </edge>
+    <edge source="android.app.Activity" target="android.view.ContextThemeWrapper">
+      <point x="-141.75" y="-2880.0" />
+      <point x="2325.916666666667" y="7861.0" />
+      <point x="1787.4166666666667" y="7861.0" />
+      <point x="0.0" y="131.0" />
+    </edge>
+    <edge source="com.example.linan.fememer.AddArticleActivity" target="android.support.v7.app.AppCompatActivity">
+      <point x="0.0" y="-119.0" />
+      <point x="0.0" y="591.5" />
+    </edge>
+    <edge source="android.app.Activity" target="android.view.Window.Callback">
+      <point x="-47.25" y="-2880.0" />
+      <point x="2420.416666666667" y="7851.0" />
+      <point x="2249.916666666667" y="7851.0" />
+      <point x="0.0" y="302.5" />
+    </edge>
+    <edge source="android.support.v4.app.FragmentActivity" target="android.support.v4.app.ActivityCompat.OnRequestPermissionsResultCallback">
+      <point x="-226.875" y="-856.0" />
+      <point x="1148.0416666666667" y="13958.0" />
+      <point x="828.1666666666667" y="13958.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="android.app.Activity" target="android.content.ComponentCallbacks2">
+      <point x="236.25" y="-2880.0" />
+      <point x="2703.916666666667" y="7871.0" />
+      <point x="3498.416666666667" y="7871.0" />
+      <point x="0.0" y="107.5" />
+    </edge>
+    <edge source="android.content.ContextWrapper" target="android.content.Context">
+      <point x="0.0" y="-1223.5" />
+      <point x="0.0" y="2339.5" />
+    </edge>
+    <edge source="android.support.v4.app.SupportActivity" target="android.app.Activity">
+      <point x="166.66666666666652" y="-108.5" />
+      <point x="2254.333333333333" y="13691.0" />
+      <point x="2467.666666666667" y="13691.0" />
+      <point x="0.0" y="2880.0" />
+    </edge>
+    <edge source="android.view.LayoutInflater.Factory2" target="android.view.LayoutInflater.Factory">
+      <point x="0.0" y="-26.5" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="android.support.v4.app.SupportActivity" target="android.support.annotation.RestrictTo">
+      <point x="-166.66666666666652" y="-108.5" />
+      <point x="1921.0000000000002" y="13671.0" />
+      <point x="1656.9970238095239" y="13671.0" />
+      <point x="57.75" y="26.5" />
+    </edge>
+    <edge source="android.support.v7.app.AppCompatActivity" target="android.support.v7.app.ActionBarDrawerToggle.DelegateProvider">
+      <point x="54.5" y="-591.5" />
+      <point x="721.25" y="15710.0" />
+      <point x="845.5" y="15710.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="android.app.Activity" target="android.view.KeyEvent.Callback">
+      <point x="47.25" y="-2880.0" />
+      <point x="2514.916666666667" y="7851.0" />
+      <point x="2685.416666666667" y="7851.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="android.support.v7.app.AppCompatActivity" target="android.support.v4.app.TaskStackBuilder.SupportParentable">
+      <point x="-163.5" y="-591.5" />
+      <point x="503.25" y="15720.0" />
+      <point x="126.0" y="15720.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="android.support.v4.app.FragmentActivity" target="android.support.v4.app.SupportActivity">
+      <point x="226.875" y="-856.0" />
+      <point x="1601.7916666666667" y="13958.0" />
+      <point x="1962.6666666666667" y="13958.0" />
+      <point x="-125.0" y="108.5" />
+    </edge>
+    <edge source="android.support.v4.app.FragmentActivity.HostCallbacks" target="android.support.v4.app.FragmentActivity">
+      <point x="0.0" y="-199.5" />
+      <point x="1716.75" y="15720.0" />
+      <point x="1576.5833333333333" y="15720.0" />
+      <point x="201.66666666666652" y="856.0" />
+    </edge>
+    <edge source="android.support.annotation.RestrictTo.Scope" target="android.support.annotation.RestrictTo">
+      <point x="0.0" y="-84.5" />
+      <point x="1750.6666666666667" y="13681.0" />
+      <point x="1618.4970238095239" y="13681.0" />
+      <point x="19.25" y="26.5" />
+    </edge>
+    <edge source="android.support.v7.app.AppCompatActivity" target="android.support.v7.app.AppCompatCallback">
+      <point x="-54.5" y="-591.5" />
+      <point x="612.25" y="15710.0" />
+      <point x="488.0" y="15710.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="android.support.v4.app.SupportActivity" target="android.arch.lifecycle.LifecycleOwner">
+      <point x="0.0" y="-108.5" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="android.support.v4.app.FragmentActivity.NonConfigurationInstances" target="android.support.v4.app.FragmentActivity">
+      <point x="0.0" y="-61.5" />
+      <point x="1234.75" y="15720.0" />
+      <point x="1374.9166666666667" y="15720.0" />
+      <point x="0.0" y="856.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6238189533239038" x="1258.217661193432" y="10654.437647378923" />
+  <SelectedNodes>
+    <node>android.app.Activity</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
