@@ -2,12 +2,15 @@ package com.loheagn.fememer.servlets;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.alibaba.fastjson.JSON;
+
+import com.loheagn.fememer.dbop.*;
 
 /**
  * SelectArticleServlet
@@ -21,15 +24,21 @@ public class SelectArticleServlet extends MyServlet {
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         String source = request.getParameter("source");
-
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        OutputStream outputStream = response.getOutputStream();
+        List<Article> responseData = null;
         if (source.equals("all")) {
-            outputStream.write(JSON.toJSONString(dbop.selectAllArticlesByID(id)).getBytes("UTF-8"));
+            responseData = dbop.selectAllArticlesByID(id);
         } else {
-            outputStream.write(JSON.toJSONString(dbop.selectArticlesByIDAndSource(id, source)).getBytes("UTF-8"));
+            responseData = dbop.selectArticlesByIDAndSource(id, source);
         }
-        outputStream.close();
+        if (responseData != null) {
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            OutputStream outputStream = response.getOutputStream();
+            outputStream.write(JSON.toJSONString(responseData).getBytes("UTF-8"));
+            outputStream.close();
+        } else {
+            response.setContentType("text/html");
+            response.getWriter().print("error");
+        }
     }
 }
