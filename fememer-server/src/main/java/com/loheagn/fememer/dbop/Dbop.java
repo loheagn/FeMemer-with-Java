@@ -273,6 +273,33 @@ public class Dbop {
         return new Article(id, source, title, webUrl, localUrl, downloaded, addTime, tag);
     }
 
+    /**
+     * 根据传入的用户id和文章标题，找到相应的文章，并返回 如果出现错误的话，返回null
+     * 
+     * @param id
+     * @param title
+     * @return
+     */
+    public Article getArticleByIDAndTitle(int id, String title) {
+        try {
+            ConnectDatabase();
+            ResultSet resultSet = statement
+                    .executeQuery(String.format("select * from articleINFO where id=%d and title='%s'", id, title));
+            return generateArticleFromResault(resultSet);
+        } catch (NullPointerException nullPointerException) {
+            nullPointerException.printStackTrace();
+            return null;
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+            return null;
+        } catch (ClassNotFoundException classNotFoundException) {
+            classNotFoundException.printStackTrace();
+            return null;
+        } finally {
+            CloseDateabase();
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println(new Dbop().insertArticle(1, "source", "title", "webUrl", "localUrl"));
     }

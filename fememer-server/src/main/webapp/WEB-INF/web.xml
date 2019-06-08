@@ -50,4 +50,13 @@
     <url-pattern>/selectarticle</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>GetArticle</servlet-name>
+    <servlet-class>com.loheagn.fememer.servlets.GetArticleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetArticle</servlet-name>
+    <url-pattern>/getarticle</url-pattern>
+  </servlet-mapping>
+
 </web-app>
