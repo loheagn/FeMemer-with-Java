@@ -18,7 +18,7 @@ public class RegisterServlet extends MyServlet {
     private static final long serialVersionUID = -6106782208986631383L;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         values.setWebappPath(request.getSession().getServletContext().getRealPath("/"));
         String name = request.getParameter("userName");
@@ -42,5 +42,10 @@ public class RegisterServlet extends MyServlet {
         OutputStream outputStream = response.getOutputStream();
         outputStream.write(JSON.toJSONString(responseData).getBytes("UTF-8"));
         outputStream.close();
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
     }
 }

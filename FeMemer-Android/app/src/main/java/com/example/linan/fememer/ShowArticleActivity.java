@@ -111,7 +111,7 @@ public class ShowArticleActivity extends AppCompatActivity {
                 Intent shareIntent = new Intent();
                 shareIntent.setAction(Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
-                String mess = articleINFO.getTitle()+"http://39.96.166.183/" + articleINFO.getLocal_url();
+                String mess = articleINFO.getTitle()+Values.rootIP + "/" + articleINFO.getLocal_url();
                 shareIntent.putExtra(Intent.EXTRA_TEXT,mess);
                 startActivity(Intent.createChooser(shareIntent,"分享到："));
                 break;
@@ -223,8 +223,8 @@ public class ShowArticleActivity extends AppCompatActivity {
             public void run() {
                 try {
                     OkHttpClient client = new OkHttpClient();
-                    RequestBody requestBody = new FormBody.Builder().add("option", "ask_url_by_title_and_id").add("id", String.valueOf(mid)).add("title", title).build();
-                    Request request = new Request.Builder().url("http://39.96.166.183/cgi-bin/dbop.py").post(requestBody).build();
+                    RequestBody requestBody = new FormBody.Builder().add("id", String.valueOf(mid)).add("title", title).build();
+                    Request request = new Request.Builder().url(Valuse.rootIP + "/getarticle").post(requestBody).build();
                     Response response = client.newCall(request).execute();
                     responseData = response.body().string();
                     System.out.println("responseData is "+ responseData);
@@ -251,7 +251,7 @@ public class ShowArticleActivity extends AppCompatActivity {
                 WebView webView = (WebView) findViewById(R.id.webView);
                 webView.getSettings().setJavaScriptEnabled(true);
                 webView.setWebViewClient(new WebViewClient());
-                webView.loadUrl("http://39.96.166.183/" + articleINFO.getLocal_url());
+                webView.loadUrl(Valuse.rootIP + "/" + articleINFO.getLocal_url());
                 askforTags();
             }
         });
@@ -269,8 +269,8 @@ public class ShowArticleActivity extends AppCompatActivity {
             public void run() {
                 try {
                     OkHttpClient client = new OkHttpClient();
-                    RequestBody requestBody = new FormBody.Builder().add("option", "askForTags").add("id", String.valueOf(mid)).build();
-                    Request request = new Request.Builder().url("http://39.96.166.183/cgi-bin/dbop.py").post(requestBody).build();
+                    RequestBody requestBody = new FormBody.Builder().add("id", String.valueOf(mid)).build();
+                    Request request = new Request.Builder().url(Values.rootIP + "/getalltags").post(requestBody).build();
                     Response response = client.newCall(request).execute();
                     responseData = response.body().string();
                     String StrJson = responseData;
@@ -298,8 +298,8 @@ public class ShowArticleActivity extends AppCompatActivity {
             public void run() {
                 try {
                     OkHttpClient client = new OkHttpClient();
-                    RequestBody requestBody = new FormBody.Builder().add("option", "delete_by_title_and_id").add("id", String.valueOf(mid)).add("title", title).build();
-                    Request request = new Request.Builder().url("http://39.96.166.183/cgi-bin/dbop.py").post(requestBody).build();
+                    RequestBody requestBody = new FormBody.Builder().add("id", String.valueOf(mid)).add("title", title).build();
+                    Request request = new Request.Builder().url(Values.rootIP + "/deletearticle").post(requestBody).build();
                     Response response = client.newCall(request).execute();
                     responseData = response.body().string();
                     System.out.println("delete is" + responseData);
@@ -332,7 +332,7 @@ public class ShowArticleActivity extends AppCompatActivity {
             public void run() {
                 try {
                     OkHttpClient client = new OkHttpClient();
-                    RequestBody requestBody = new FormBody.Builder().add("option", "updateTagBytitleAndTitle").add("id", String.valueOf(mid)).add("title", title).add("tag", newTag).build();
+                    RequestBody requestBody = new FormBody.Builder().add("id", String.valueOf(mid)).add("title", title).add("tag", newTag).build();
                     Request request = new Request.Builder().url("http://39.96.166.183/cgi-bin/dbop.py").post(requestBody).build();
                     Response response = client.newCall(request).execute();
                     responseData = response.body().string();

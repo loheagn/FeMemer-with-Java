@@ -20,7 +20,7 @@ public class LoginServlet extends MyServlet {
     private static final long serialVersionUID = 3167196807814576347L;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         values.setWebappPath(request.getSession().getServletContext().getRealPath("/"));
         String name = request.getParameter("userName");
@@ -48,7 +48,8 @@ public class LoginServlet extends MyServlet {
         outputStream.close();
     }
 
-    public static void main(String[] args) {
-        System.out.println(new Dbop().getUserByName("15131049"));
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
     }
 }

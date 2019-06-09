@@ -210,9 +210,8 @@ public class ImportantActivity extends AppCompatActivity {
             public void run() {
                 try {
                     OkHttpClient client = new OkHttpClient();
-                    String tmp = "select_" + source + "_by_id";
-                    RequestBody requestBody = new FormBody.Builder().add("id", String.valueOf(userID)).add("option", tmp).build();
-                    Request request = new Request.Builder().url("http://39.96.166.183/cgi-bin/dbop.py").post(requestBody).build();
+                    RequestBody requestBody = new FormBody.Builder().add("id", String.valueOf(userID)).add("source", source).build();
+                    Request request = new Request.Builder().url(Values.rootIP + "/selectarticle").post(requestBody).build();
                     Response response = client.newCall(request).execute();
                     responseData = response.body().string();
                     initArcticleList();
@@ -291,9 +290,8 @@ public class ImportantActivity extends AppCompatActivity {
                 try {
                     Thread.sleep(2000);
                     OkHttpClient client = new OkHttpClient();
-                    String tmp = "select_" + source + "_by_id";
-                    RequestBody requestBody = new FormBody.Builder().add("id", String.valueOf(userID)).add("option", tmp).build();
-                    Request request = new Request.Builder().url("http://39.96.166.183/cgi-bin/dbop.py").post(requestBody).build();
+                    RequestBody requestBody = new FormBody.Builder().add("id", String.valueOf(userID)).add("source", souce).build();
+                    Request request = new Request.Builder().url(Values.rootIP + "/selectarticle").post(requestBody).build();
                     Response response = client.newCall(request).execute();
                     responseData = response.body().string();
                     initArcticleList();
@@ -317,9 +315,8 @@ public class ImportantActivity extends AppCompatActivity {
             public void run() {
                 try {
                     OkHttpClient client = new OkHttpClient();
-                    String tmp = "select_" + source + "_by_id";
-                    RequestBody requestBody = new FormBody.Builder().add("id", String.valueOf(userID)).add("option", tmp).build();
-                    Request request = new Request.Builder().url("http://39.96.166.183/cgi-bin/dbop.py").post(requestBody).build();
+                    RequestBody requestBody = new FormBody.Builder().add("id", String.valueOf(userID)).add("source", source).build();
+                    Request request = new Request.Builder().url(Values.rootIP + "/selectarticle").post(requestBody).build();
                     Response response = client.newCall(request).execute();
                     responseData = response.body().string();
                     initArcticleList();
@@ -347,8 +344,8 @@ public class ImportantActivity extends AppCompatActivity {
             public void run() {
                 try {
                     OkHttpClient client = new OkHttpClient();
-                    RequestBody requestBody = new FormBody.Builder().add("id", String.valueOf(userID)).add("option", "SearchAndRefresh").add("searchData", searchData).build();
-                    Request request = new Request.Builder().url("http://39.96.166.183/cgi-bin/dbop.py").post(requestBody).build();
+                    RequestBody requestBody = new FormBody.Builder().add("id", String.valueOf(userID)).add("searchData", searchData).build();
+                    Request request = new Request.Builder().url(Valuse.rootIP + "/searcharticle").post(requestBody).build();
                     Response response = client.newCall(request).execute();
                     responseData = response.body().string();
                     initArcticleList();
