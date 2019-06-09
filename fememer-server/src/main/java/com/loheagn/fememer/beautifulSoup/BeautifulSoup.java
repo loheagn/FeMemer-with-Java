@@ -1,4 +1,4 @@
-package com.loheagn.fememer;
+package com.loheagn.fememer.beautifulSoup;
 
 import java.io.*;
 import java.util.*;
@@ -6,13 +6,16 @@ import org.jsoup.*;
 import org.jsoup.nodes.*;
 import org.jsoup.select.Elements;
 import com.loheagn.fememer.tools.*;
+import com.loheagn.fememer.downLoader.*;
+import com.loheagn.fememer.render.*;
 
 /**
- * BeautifulSoup
+ * beautifulSoup
  */
 public class BeautifulSoup {
 
     static String weixinPath = "/weixin/";
+    static String douBanPath = "douban\\";
     static String zhihuPath = "zhihu/";
     Long img_count = 0L;
     ChromeHeadless chromeHeadless = new ChromeHeadless();

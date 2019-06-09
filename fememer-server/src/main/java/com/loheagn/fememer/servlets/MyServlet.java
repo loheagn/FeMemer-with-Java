@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServlet;
 import com.loheagn.fememer.dbop.Dbop;
 import com.loheagn.fememer.tools.Values;
 
-import com.loheagn.fememer.*;
+import com.loheagn.fememer.beautifulSoup.*;
 
 /**
  * MyServlet

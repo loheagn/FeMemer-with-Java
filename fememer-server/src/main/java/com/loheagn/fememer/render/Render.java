@@ -1,4 +1,4 @@
-package com.loheagn.fememer;
+package com.loheagn.fememer.render;
 
 import java.io.*;
 import java.util.HashMap;
@@ -8,7 +8,7 @@ import freemarker.template.*;
 import com.loheagn.fememer.tools.*;
 
 /**
- * Render
+ * render
  */
 public class Render {
 
