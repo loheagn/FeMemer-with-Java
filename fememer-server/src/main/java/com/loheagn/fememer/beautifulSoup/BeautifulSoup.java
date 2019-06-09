@@ -11,11 +11,12 @@ public abstract class BeautifulSoup {
 
     static String weixinPath = "/weixin/";
     static String douBanPath = "/douban/";
-    static String zhihuPath = "zhihu/";
     static String toutiaoPath = "/toutiao/";
     static String fenghuangPath = "/fenghuang/";
     static String wangyiPath = "/wangyi/";
     static String biliPath = "/bili/";
+    static String zhihuPath = "/zhihu/";
+    static String zhihuzhuanlanPath = "/zhihu/";
     static Long img_count = 0L;
     ChromeHeadless chromeHeadless;
 
