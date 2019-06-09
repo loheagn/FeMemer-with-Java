@@ -80,7 +80,7 @@ public class WeiXinSoup extends BeautifulSoup {
     public Map<String, String> getAndStoreArticle(String url) {
         File dir = new File(weixinPath + System.currentTimeMillis());
         dir.mkdir();
-        System.out.println("\n\n\n\n" + dir.getName());
+        System.out.println("\n\n\n\n" + dir.getAbsolutePath());
         File imageDir = new File(weixinPath + dir.getName() + "/images");
         imageDir.mkdir();
         Document document = Jsoup.parse(chromeHeadless.getPageSource(url));
@@ -122,6 +122,7 @@ public class WeiXinSoup extends BeautifulSoup {
             System.out.println(htmlFile.getAbsolutePath());
         } catch (IOException e) {
             e.printStackTrace();
+            return null;
         } finally {
             if (outputStream != null) {
                 try {

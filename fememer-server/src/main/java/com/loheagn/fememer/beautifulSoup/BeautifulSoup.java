@@ -9,15 +9,15 @@ import com.loheagn.fememer.downLoader.*;
  */
 public abstract class BeautifulSoup {
 
-    static String weixinPath = "/weixin/";
-    static String douBanPath = "/douban/";
-    static String toutiaoPath = "/toutiao/";
-    static String fenghuangPath = "/fenghuang/";
-    static String wangyiPath = "/wangyi/";
-    static String biliPath = "/bili/";
-    static String zhihuPath = "/zhihu/";
-    static String zhihuzhuanlanPath = "/zhihu/";
-    static Long img_count = 0L;
+    String weixinPath = "/weixin/";
+    String douBanPath = "/douban/";
+    String toutiaoPath = "/toutiao/";
+    String fenghuangPath = "/fenghuang/";
+    String wangyiPath = "/wangyi/";
+    String biliPath = "/bili/";
+    String zhihuPath = "/zhihu/";
+    String zhihuzhuanlanPath = "/zhihu/";
+    Long img_count = 0L;
     ChromeHeadless chromeHeadless;
 
     public BeautifulSoup() {

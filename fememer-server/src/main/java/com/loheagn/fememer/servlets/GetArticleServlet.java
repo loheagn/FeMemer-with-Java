@@ -26,12 +26,16 @@ public class GetArticleServlet extends MyServlet {
         title = URLDecoder.decode(title, "UTF-8");
         System.out.println(title);
         Article responseData = dbop.getArticleByIDAndTitle(id, title);
+
+        System.out.println("\n\n\n\n\n\noooookkkkk");
         if (responseData != null) {
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             OutputStream outputStream = response.getOutputStream();
             outputStream.write(JSON.toJSONString(responseData.convertToMap()).getBytes("UTF-8"));
             outputStream.close();
+
+            System.out.println("\n\n\n\n\n\noooookkkkk");
         } else {
             response.setContentType("text/html");
             response.getWriter().print("error");
