@@ -14,6 +14,7 @@ public abstract class BeautifulSoup {
     static String zhihuPath = "zhihu/";
     static String toutiaoPath = "/toutiao/";
     static String fenghuangPath = "/fenghuang/";
+    static String wangyiPath = "/wangyi/";
     static Long img_count = 0L;
     ChromeHeadless chromeHeadless;
 
