@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.alibaba.fastjson.*;
 
 import com.loheagn.fememer.dbop.*;
+import com.loheagn.fememer.beautifulSoup.*;
 
 /**
  * AddArticle
@@ -25,7 +26,8 @@ public class AddArticleServlet extends MyServlet {
         values.setWebappPath(request.getSession().getServletContext().getRealPath("/"));
         int id = Integer.parseInt(request.getParameter("id"));
         String webUrl = request.getParameter("url");
-        Map<String, String> articleMap = beautifulSoup.getAndStoreWeixinArticle(webUrl);
+        BeautifulSoup beautifulSoup = new WeiXinSoup();
+        Map<String, String> articleMap = beautifulSoup.getAndStoreArticle(webUrl);
         Article article = dbop.insertArticle(id, articleMap.get("source"), articleMap.get("title"), webUrl,
                 articleMap.get("localUrl"));
 
