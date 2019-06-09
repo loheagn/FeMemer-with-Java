@@ -2,6 +2,7 @@ package com.loheagn.fememer.servlets;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +26,7 @@ public class SearchArticlesServlet extends MyServlet {
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         String word = request.getParameter("searchData");
+        word = URLDecoder.decode(word, "UTF-8");
         List<Article> responseData = dbop.searchArticles(id, word);
         if (responseData != null) {
             List<Map<String, Object>> returnMap = new ArrayList<Map<String, Object>>();

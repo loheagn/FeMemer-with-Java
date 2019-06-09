@@ -1,6 +1,7 @@
 package com.loheagn.fememer.servlets;
 
 import java.io.IOException;
+import java.net.URLDecoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +19,9 @@ public class UpdateTagServlet extends MyServlet {
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         String title = request.getParameter("title");
+        title = URLDecoder.decode(title, "UTF-8");
         String tag = request.getParameter("tag");
+        tag = URLDecoder.decode(tag, "UTF-8");
         response.setContentType("text/html");
         if (dbop.updateTagBytitleAndTitle(id, title, tag))
             response.getWriter().print("ok");

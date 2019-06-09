@@ -113,12 +113,13 @@ public class ChromeHeadless {
 
     public static void main(String[] args) throws IOException {
         ChromeHeadless chromeHeadless = new ChromeHeadless();
-        // File file = new File("ttt.html");
-        // OutputStream outputStream = new FileOutputStream(file);
-        // outputStream.write(chromeHeadless.getPageSource(
-        // "https://mmbiz.qpic.cn/mmbiz_jpg/b96CibCt70iaaicHUKVLMp2vK1qtPdpGSbd4QAW2ItYkgsPJ1KPE8PPuEYzRVCnlcencLAhbFlFdnEhmVTNw0KSRQ/640?tp=webp&wxfrom=5&wx_lazy=1&wx_co=1")
-        // .getBytes());
-        // outputStream.close();
-        chromeHeadless.downImageFile("https://img3.doubanio.com/view/thing_review/l/public/p2811970.webp", "test.png");
+        File file = new File("ttt.html");
+        OutputStream outputStream = new FileOutputStream(file);
+        outputStream.write(chromeHeadless.getPageSource(
+                "https://mp.weixin.qq.com/s?__biz=MjM5MTA0MzIxNg==&mid=2651030558&idx=1&sn=7eb09446fafd34468004ae9c8da94109&chksm=bd4cbfe18a3b36f78b146b6ef5e0f30a3eb7b890a26aafbaf75aac2df8ca2ff8c9a9f269d7c1&bizpsid=0&scene=126&ascene=3&devicetype=android-27&version=2700043c&nettype=WIFI&abtest_cookie=BQABAAoACwASABMAFQAHACOXHgBWmR4Aw5keANyZHgDxmR4AA5oeAAmaHgAAAA%3D%3D&lang=zh_CN&pass_ticket=SV7qt9KJ0b4PpnqsOxx3nzTmXJZo9iib3DKkBtE%2Brh%2Bs9%2BmXW7xlHRAzBT%2BvmVcz&wx_header=1")
+                .getBytes());
+        outputStream.close();
+        // chromeHeadless.downImageFile("https://img3.doubanio.com/view/thing_review/l/public/p2811970.webp",
+        // "test.png");
     }
 }

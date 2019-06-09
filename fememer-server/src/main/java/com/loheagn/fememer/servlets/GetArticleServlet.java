@@ -1,6 +1,7 @@
 package com.loheagn.fememer.servlets;
 
 import java.io.*;
+import java.net.URLDecoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -19,8 +20,11 @@ public class GetArticleServlet extends MyServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println("\n\n\n\n\n\noooookkkkk");
         int id = Integer.parseInt(request.getParameter("id"));
         String title = request.getParameter("title");
+        title = URLDecoder.decode(title, "UTF-8");
+        System.out.println(title);
         Article responseData = dbop.getArticleByIDAndTitle(id, title);
         if (responseData != null) {
             response.setContentType("application/json");

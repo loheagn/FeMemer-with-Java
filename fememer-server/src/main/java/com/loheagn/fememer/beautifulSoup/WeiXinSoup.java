@@ -40,6 +40,8 @@ public class WeiXinSoup extends BeautifulSoup {
             return imgElement;
         }
 
+        System.out.println(dirName);
+
         // 获取完整的文件名
         String shortFileName;
         img_count++;
@@ -78,6 +80,7 @@ public class WeiXinSoup extends BeautifulSoup {
     public Map<String, String> getAndStoreArticle(String url) {
         File dir = new File(weixinPath + System.currentTimeMillis());
         dir.mkdir();
+        System.out.println("\n\n\n\n" + dir.getName());
         File imageDir = new File(weixinPath + dir.getName() + "/images");
         imageDir.mkdir();
         Document document = Jsoup.parse(chromeHeadless.getPageSource(url));
@@ -113,8 +116,10 @@ public class WeiXinSoup extends BeautifulSoup {
         File htmlFile = new File(weixinPath + dir.getName() + "/index.html");
         OutputStream outputStream = null;
         try {
+            htmlFile.createNewFile();
             outputStream = new FileOutputStream(htmlFile);
             outputStream.write(wholeHtmlString.getBytes());
+            System.out.println(htmlFile.getAbsolutePath());
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -127,5 +132,10 @@ public class WeiXinSoup extends BeautifulSoup {
             }
         }
         return returnArticleMap("weixin/" + dir.getName(), "weixin", title);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new WeiXinSoup().getAndStoreArticle(
+                "https://mp.weixin.qq.com/s?__biz=MjM5MTA0MzIxNg==&mid=2651030558&idx=1&sn=7eb09446fafd34468004ae9c8da94109&chksm=bd4cbfe18a3b36f78b146b6ef5e0f30a3eb7b890a26aafbaf75aac2df8ca2ff8c9a9f269d7c1&bizpsid=0&scene=126&ascene=3&devicetype=android-27&version=2700043c&nettype=WIFI&abtest_cookie=BQABAAoACwASABMAFQAHACOXHgBWmR4Aw5keANyZHgDxmR4AA5oeAAmaHgAAAA%3D%3D&lang=zh_CN&pass_ticket=SV7qt9KJ0b4PpnqsOxx3nzTmXJZo9iib3DKkBtE%2Brh%2Bs9%2BmXW7xlHRAzBT%2BvmVcz&wx_header=1"));
     }
 }
