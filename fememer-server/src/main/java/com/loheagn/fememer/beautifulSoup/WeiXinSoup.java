@@ -16,6 +16,9 @@ public class WeiXinSoup extends BeautifulSoup {
     public WeiXinSoup() {
         super();
         weixinPath = Values.getWebappPath() + weixinPath;
+        File dir = new File(weixinPath);
+        if (!dir.exists())
+            dir.mkdir();
     }
 
     public WeiXinSoup(String chromeDriverPath, String chromePath) {

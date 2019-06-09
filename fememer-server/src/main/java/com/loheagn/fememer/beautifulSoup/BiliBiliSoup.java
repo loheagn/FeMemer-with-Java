@@ -16,6 +16,9 @@ public class BiliBiliSoup extends BeautifulSoup {
     public BiliBiliSoup() {
         super();
         biliPath = Values.getWebappPath() + biliPath;
+        File dir = new File(biliPath);
+        if (!dir.exists())
+            dir.mkdir();
     }
 
     @Override

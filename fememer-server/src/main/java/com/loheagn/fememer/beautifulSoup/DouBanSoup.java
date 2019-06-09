@@ -16,6 +16,9 @@ public class DouBanSoup extends BeautifulSoup {
     public DouBanSoup() {
         super();
         douBanPath = Values.getWebappPath() + douBanPath;
+        File dir = new File(douBanPath);
+        if (!dir.exists())
+            dir.mkdir();
     }
 
     @Override

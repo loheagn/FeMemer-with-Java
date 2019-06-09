@@ -16,6 +16,9 @@ public class TouTiaoSoup extends BeautifulSoup {
     public TouTiaoSoup() {
         super();
         toutiaoPath = Values.getWebappPath() + toutiaoPath;
+        File dir = new File(toutiaoPath);
+        if (!dir.exists())
+            dir.mkdir();
     }
 
     @Override

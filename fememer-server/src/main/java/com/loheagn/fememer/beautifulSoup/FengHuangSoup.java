@@ -16,6 +16,9 @@ public class FengHuangSoup extends BeautifulSoup {
     public FengHuangSoup() {
         super();
         fenghuangPath = Values.getWebappPath() + fenghuangPath;
+        File dir = new File(fenghuangPath);
+        if (!dir.exists())
+            dir.mkdir();
     }
 
     @Override
