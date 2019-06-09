@@ -73,8 +73,4 @@ public class User {
     public String toString() {
         return "用户ID：" + id + "  用户名：" + name + "    密码：" + password;
     }
-
-    public static void main(String[] args) {
-        LoginServlet.main(args);
-    }
 }
