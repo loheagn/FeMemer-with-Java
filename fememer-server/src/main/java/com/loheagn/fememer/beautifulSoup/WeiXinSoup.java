@@ -13,6 +13,16 @@ import com.loheagn.fememer.render.*;
  */
 public class WeiXinSoup extends BeautifulSoup {
 
+    public WeiXinSoup() {
+        super();
+        weixinPath = Values.getWebappPath() + weixinPath;
+    }
+
+    public WeiXinSoup(String chromeDriverPath, String chromePath) {
+        super(chromeDriverPath, chromePath);
+        weixinPath = Values.getWebappPath() + weixinPath;
+    }
+
     /**
      * 爬取微信页面的时候处理img标签的方法，主要是把把图片下载下来， 保存到相应的位置，然后修改img标签的各个属性，使其指向本机的图片
      * 
@@ -20,6 +30,7 @@ public class WeiXinSoup extends BeautifulSoup {
      * @param imgElement 要修改的图片标签
      * @return
      */
+    @Override
     Element dealwithImgElement(String dirName, Element imgElement) {
         // 如果图片标签里没有这个属性，那么这个标签没有处理的必要
         if (imgElement.attr("data-src").equals("")) {
@@ -60,8 +71,8 @@ public class WeiXinSoup extends BeautifulSoup {
      * 
      * @param url 用户传入的微信公众号的文章链接
      */
+    @Override
     public Map<String, String> getAndStoreArticle(String url) {
-        weixinPath = Values.getWebappPath() + weixinPath;
         File dir = new File(weixinPath + System.currentTimeMillis());
         dir.mkdir();
         File imageDir = new File(weixinPath + dir.getName() + "/images");

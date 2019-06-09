@@ -5,7 +5,7 @@ package com.loheagn.fememer.tools;
  */
 public class Values {
 
-    private static String webappPath;
+    private static String webappPath = "/usr/local/Cellar/tomcat/9.0.20/libexec/webapps/fememer";
 
     /**
      * @param webappPath the webappPath to set

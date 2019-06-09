@@ -64,6 +64,7 @@ public class ChromeHeadless {
             return imageFile;
         } catch (Exception e) {
             System.err.println("下载图片" + fileName + "失败");
+            e.printStackTrace();
             return null;
         }
     }
@@ -118,8 +119,6 @@ public class ChromeHeadless {
         // "https://mmbiz.qpic.cn/mmbiz_jpg/b96CibCt70iaaicHUKVLMp2vK1qtPdpGSbd4QAW2ItYkgsPJ1KPE8PPuEYzRVCnlcencLAhbFlFdnEhmVTNw0KSRQ/640?tp=webp&wxfrom=5&wx_lazy=1&wx_co=1")
         // .getBytes());
         // outputStream.close();
-        chromeHeadless.downImageFile(
-                "https://mmbiz.qpic.cn/mmbiz_jpg/b96CibCt70iaaicHUKVLMp2vK1qtPdpGSbd4QAW2ItYkgsPJ1KPE8PPuEYzRVCnlcencLAhbFlFdnEhmVTNw0KSRQ/640?tp=webp&wxfrom=5&wx_lazy=1&wx_co=1",
-                "test.png");
+        chromeHeadless.downImageFile("https://img3.doubanio.com/view/thing_review/l/public/p2811970.webp", "test.png");
     }
 }

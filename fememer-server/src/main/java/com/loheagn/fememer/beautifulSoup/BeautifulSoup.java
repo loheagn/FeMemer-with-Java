@@ -10,8 +10,9 @@ import com.loheagn.fememer.downLoader.*;
 public abstract class BeautifulSoup {
 
     static String weixinPath = "/weixin/";
-    static String douBanPath = "douban\\";
+    static String douBanPath = "/douban/";
     static String zhihuPath = "zhihu/";
+    static String toutiaoPath = "/toutiao/";
     static Long img_count = 0L;
     ChromeHeadless chromeHeadless;
 
@@ -41,9 +42,9 @@ public abstract class BeautifulSoup {
     }
 
     /**
-     * 爬取微信页面的时候处理img标签的方法，主要是把把图片下载下来， 保存到相应的位置，然后修改img标签的各个属性，使其指向本机的图片
+     * 爬取页面的时候处理img标签的方法，主要是把把图片下载下来， 保存到相应的位置，然后修改img标签的各个属性，使其指向本机的图片
      * 
-     * @param dirName    存放图片的目录，对于微信，一般应该是/weixin/时间戳字符串/images/
+     * @param dirName    存放图片的目录
      * @param imgElement 要修改的图片标签
      * @return
      */
