@@ -118,7 +118,7 @@ public class ArticleCardAdapter extends RecyclerView.Adapter<ArticleCardAdapter.
                         shareIntent.setType("text/plain");
                         String mess = null;
                         try {
-                            mess = articleINFO.getTitle() + "http://39.96.166.183/" + articleINFO.getLocal_url();
+                            mess = articleINFO.getTitle() + Values.rootIP + "/" + articleINFO.getLocal_url();
                         } catch (NullPointerException e) {
                             e.printStackTrace();
                         } catch (Exception e) {
@@ -171,11 +171,10 @@ public class ArticleCardAdapter extends RecyclerView.Adapter<ArticleCardAdapter.
             try {
                 mid = mContext.getSharedPreferences("userINFO", MODE_PRIVATE).getInt("id", 1);
                 OkHttpClient client = new OkHttpClient();
-                RequestBody requestBody = new FormBody.Builder().add("option", "ask_url_by_title_and_id").add("id", String.valueOf(mid)).add("title", title).build();
-                Request request = new Request.Builder().url("http://39.96.166.183/cgi-bin/dbop.py").post(requestBody).build();
+                RequestBody requestBody = new FormBody.Builder().add("id", String.valueOf(mid)).add("title", title).build();
+                Request request = new Request.Builder().url(Values.rootIP + "/getarticle").post(requestBody).build();
                 Response response = client.newCall(request).execute();
                 String responseData = response.body().string();
-                //System.out.println(responseData);
                 Gson gson = new Gson();
                 articleINFO = gson.fromJson(responseData, ArticleINFO.class);
             } catch (IOException e) {
@@ -200,8 +199,8 @@ public class ArticleCardAdapter extends RecyclerView.Adapter<ArticleCardAdapter.
         public void run() {
             try {
                 OkHttpClient client = new OkHttpClient();
-                RequestBody requestBody = new FormBody.Builder().add("option", "delete_by_title_and_id").add("id", String.valueOf(mid)).add("title", title).build();
-                Request request = new Request.Builder().url("http://39.96.166.183/cgi-bin/dbop.py").post(requestBody).build();
+                RequestBody requestBody = new FormBody.Builder().add("id", String.valueOf(mid)).add("title", title).build();
+                Request request = new Request.Builder().url(Values.rootIP + "/getarticle").post(requestBody).build();
                 Response response = client.newCall(request).execute();
                 String responseData = response.body().string();
                 System.out.println(responseData);

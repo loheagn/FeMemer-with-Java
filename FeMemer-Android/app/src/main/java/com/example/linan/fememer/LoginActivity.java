@@ -107,8 +107,8 @@ public class LoginActivity extends AppCompatActivity {
             public void run() {
                 try {
                     OkHttpClient client = new OkHttpClient();
-                    RequestBody requestBody = new FormBody.Builder().add("userName", name).add("password", passwod).add("option", "login").build();
-                    Request request = new Request.Builder().url("http://39.96.166.183/cgi-bin/dbop.py").addHeader("Connection", "close").post(requestBody).build();
+                    RequestBody requestBody = new FormBody.Builder().add("userName", name).add("password", passwod).build();
+                    Request request = new Request.Builder().url(Values.rootIP + "/login").addHeader("Connection", "close").post(requestBody).build();
                     Response response = client.newCall(request).execute();
                     responseData = response.body().string();
                     showresponse();
@@ -180,8 +180,8 @@ public class LoginActivity extends AppCompatActivity {
             public void run() {
                 try {
                     OkHttpClient client = new OkHttpClient();
-                    RequestBody requestBody = new FormBody.Builder().add("id", mid).add("option", "delete").build();
-                    Request request = new Request.Builder().url("http://39.96.166.183/cgi-bin/dbop.py").post(requestBody).build();
+                    RequestBody requestBody = new FormBody.Builder().add("id", mid).build();
+                    Request request = new Request.Builder().url(Values.rootIP + "/deleteuser").post(requestBody).build();
                     Response response = client.newCall(request).execute();
                     responseData = response.body().string();
                     ClearTextView();

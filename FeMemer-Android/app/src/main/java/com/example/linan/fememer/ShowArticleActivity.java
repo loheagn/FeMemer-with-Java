@@ -333,7 +333,7 @@ public class ShowArticleActivity extends AppCompatActivity {
                 try {
                     OkHttpClient client = new OkHttpClient();
                     RequestBody requestBody = new FormBody.Builder().add("id", String.valueOf(mid)).add("title", title).add("tag", newTag).build();
-                    Request request = new Request.Builder().url("http://39.96.166.183/cgi-bin/dbop.py").post(requestBody).build();
+                    Request request = new Request.Builder().url(Values.rootIP + "/updatetag").post(requestBody).build();
                     Response response = client.newCall(request).execute();
                     responseData = response.body().string();
                     showresponse3();

@@ -27,7 +27,7 @@ public class HelpActivity extends AppCompatActivity {
         WebView webView = (WebView) findViewById(R.id.help_web_view);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("http://39.96.166.183/FeMemer/index.html");
+        webView.loadUrl(Values.rootIP + "/index.html");
     }
 
     @Override
