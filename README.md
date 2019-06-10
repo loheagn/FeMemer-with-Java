@@ -116,3 +116,7 @@ BeautifulSoup包包含了一系列爬取各类网站文章的类。它们从Down
 - [Freemarker](https://freemarker.apache.org/)，方便渲染HTML文件。
 
 - 阿里的fastjason库，方便将要传输的对象转转换为json格式。
+
+## LICENSE
+
+MIT
