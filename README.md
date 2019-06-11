@@ -93,9 +93,9 @@ BeautifulSoup包包含了一系列爬取各类网站文章的类。它们从Down
 
 - 从文字中抽取合法的URL时，我们使用相关的正则表达式来找到输入文字中的相关URL。
 
-- (okhttp)[https://github.com/square/okhttp]，用于构建http请求。
+- [okhttp](https://github.com/square/okhttp)，用于构建http请求。
 
-
+- 
 
 ## 项目使用的第三方依赖
 
