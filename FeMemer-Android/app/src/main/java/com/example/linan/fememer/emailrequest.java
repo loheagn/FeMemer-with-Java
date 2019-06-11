@@ -6,13 +6,15 @@ package com.example.linan.fememer;
 
 public class emailrequest implements Runnable {
     private String email;
-    emailrequest(String email){
+    private String newpwd;
+    emailrequest(String email, String newpwd){
         this.email = email;
+        this.newpwd = newpwd;
     }
     @Override
     public void run() {
         try{
-            SendMailUtil.sendemail(email);
+            SendMailUtil.sendemail(email,newpwd);
         }catch (Exception e){
             e.printStackTrace();
         }

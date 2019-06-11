@@ -4,9 +4,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.os.Looper;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
@@ -77,14 +78,14 @@ public class LoginActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 String email = editText.getText().toString();
-                                try{
-                                    if(check.isEmail(email)){
-                                        new Thread(new emailrequest(email)).start();
-                                        Toast.makeText(LoginActivity.this, "发送成功", Toast.LENGTH_SHORT).show();
-                                    }
-                                    else
+                                try {
+                                    if (check.isEmail(email)) {
+                                        String newpwd = SendMailUtil.getrandompwd(8);
+                                        new Thread(new emailrequest(email, newpwd)).start();
+                                        findpasswordback(editText.getText().toString(),newpwd);
+                                    } else
                                         Toast.makeText(LoginActivity.this, "错误的邮箱格式", Toast.LENGTH_SHORT).show();
-                                }catch (Exception e){
+                                } catch (Exception e) {
                                     e.printStackTrace();
                                 }
 
@@ -97,9 +98,32 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     /**
-     * 像服务器发送请求，验证账号密码是否是对的
+     * 向服务器发送请求，验证账号密码是否是对的
      *
      */
+
+    private void findpasswordback(final String email, final String password) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    OkHttpClient client = new OkHttpClient();
+                    RequestBody requestBody = new FormBody.Builder().add("name", email).add("password", password).build();
+                    String url = Values.rootIP + "/updateuser";
+                    Request request = new Request.Builder().url(url).post(requestBody).build();
+                    Response response = client.newCall(request).execute();
+                    String responseData = response.body().string();
+                    if(responseData.equals("ok"))
+                        Toast.makeText(LoginActivity.this,"发送成功，请耐心等待",Toast.LENGTH_SHORT).show();
+                    else
+                        Toast.makeText(LoginActivity.this,"发送失败",Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
 
     private void yanzhengdenglu() {
         new Thread(new Runnable() {
@@ -131,7 +155,7 @@ public class LoginActivity extends AppCompatActivity {
             public void run() {
                 Gson gson = new Gson();
                 final LoginReaponse loginReaponse = gson.fromJson(responseData, LoginReaponse.class);
-                if (loginReaponse.getFlag().equals("OK")) {
+                if (loginReaponse.getFlag().equals("ok")) {
                     SharedPreferences.Editor editor = getSharedPreferences("userINFO", MODE_PRIVATE).edit();
                     editor.putInt("userID", loginReaponse.id);
                     editor.putString("userName", name);

@@ -31,4 +31,19 @@
         android:title="豆瓣"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/fenghuang"
+        android:title="凤凰"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/bili"
+        android:title="批站"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/toutiao"
+        android:title="头条"
+        app:showAsAction="never" />
+
 </menu>

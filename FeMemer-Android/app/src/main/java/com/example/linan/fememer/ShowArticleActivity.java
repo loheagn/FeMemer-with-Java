@@ -1,39 +1,24 @@
 package com.example.linan.fememer;
 
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.SwipeRefreshLayout;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.support.v7.widget.Toolbar;
-import android.widget.Adapter;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.SearchView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,9 +27,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnMultiChoiceClickListener;
+import java.net.URLEncoder;
 
 public class ShowArticleActivity extends AppCompatActivity {
     private String title;
@@ -135,78 +118,7 @@ public class ShowArticleActivity extends AppCompatActivity {
                 dialog.show();
                 //onBackPressed();
                 break;
-            case R.id.down_load:
-                if (articleINFO == null)
-                    break;
-                String message;
-                message = "当前文章分组为" + articleINFO.getTag();
-                AlertDialog.Builder dialogg = new AlertDialog.Builder(ShowArticleActivity.this);
-                dialogg.setCancelable(true);
-                dialogg.setTitle(message);
-                dialogg.setMessage("要修改或增加新的分组吗？");
-                dialogg.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        AlertDialog.Builder dialog4 = new AlertDialog.Builder(ShowArticleActivity.this);
-                        dialog4.setTitle("选择分组");
-                        dialog4.setCancelable(true);
-                        newTagList = new String[tagList.size()+1];
-                        newTagList[0] = "默认";
-                        for (int i = 0; i < tagList.size(); i++) {
-                            newTagList[i+1] = tagList.get(i);
-                        }
-                        dialog4.setSingleChoiceItems(newTagList, 0, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                newTag = newTagList[which];
-                            }
-                        });
-                        dialog4.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                if (newTag != null && tagList.contains(newTag)) {
-                                    updateTagBytitleAndTitle();
-                                } else {
-                                    Toast.makeText(ShowArticleActivity.this, "请选择或新建分组", Toast.LENGTH_SHORT);
-                                }
-                            }
-                        });
-                        dialog4.setNegativeButton("+新建分组", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                final EditText editText = new EditText(ShowArticleActivity.this);
-                                final AlertDialog.Builder dialog3 = new AlertDialog.Builder(ShowArticleActivity.this);
-                                dialog3.setTitle("请输入新的分组名");
-                                dialog3.setView(editText);
-                                dialog3.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        String tmp = editText.getText().toString();
-                                        if (tmp != null && tmp != "")
-                                            newTag = tmp;
-                                        updateTagBytitleAndTitle();
-                                    }
-                                });
-                                dialog3.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
 
-                                    }
-                                });
-                                dialog3.show();
-                            }
-                        });
-                        dialog4.show();
-                    }
-                });
-                dialogg.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
-                dialogg.show();
-                break;
             default:
         }
         return true;
@@ -223,8 +135,10 @@ public class ShowArticleActivity extends AppCompatActivity {
             public void run() {
                 try {
                     OkHttpClient client = new OkHttpClient();
+                    title = URLEncoder.encode(title,"UTF-8");
+                    String url = Values.rootIP + "/getarticle";
                     RequestBody requestBody = new FormBody.Builder().add("id", String.valueOf(mid)).add("title", title).build();
-                    Request request = new Request.Builder().url(Valuse.rootIP + "/getarticle").post(requestBody).build();
+                    Request request = new Request.Builder().url(url).post(requestBody).build();
                     Response response = client.newCall(request).execute();
                     responseData = response.body().string();
                     System.out.println("responseData is "+ responseData);
@@ -246,12 +160,12 @@ public class ShowArticleActivity extends AppCompatActivity {
     private void showresponse() {
         runOnUiThread(new Runnable() {
             @Override
-
             public void run() {
                 WebView webView = (WebView) findViewById(R.id.webView);
                 webView.getSettings().setJavaScriptEnabled(true);
                 webView.setWebViewClient(new WebViewClient());
-                webView.loadUrl(Valuse.rootIP + "/" + articleINFO.getLocal_url());
+                String url =Values.rootIP + "/" + articleINFO.getLocal_url();
+                webView.loadUrl(url);
                 askforTags();
             }
         });
@@ -270,7 +184,8 @@ public class ShowArticleActivity extends AppCompatActivity {
                 try {
                     OkHttpClient client = new OkHttpClient();
                     RequestBody requestBody = new FormBody.Builder().add("id", String.valueOf(mid)).build();
-                    Request request = new Request.Builder().url(Values.rootIP + "/getalltags").post(requestBody).build();
+                    String url = Values.rootIP + "/getalltags";
+                    Request request = new Request.Builder().url(url).post(requestBody).build();
                     Response response = client.newCall(request).execute();
                     responseData = response.body().string();
                     String StrJson = responseData;
@@ -299,7 +214,8 @@ public class ShowArticleActivity extends AppCompatActivity {
                 try {
                     OkHttpClient client = new OkHttpClient();
                     RequestBody requestBody = new FormBody.Builder().add("id", String.valueOf(mid)).add("title", title).build();
-                    Request request = new Request.Builder().url(Values.rootIP + "/deletearticle").post(requestBody).build();
+                    String url = Values.rootIP + "/deletearticle";
+                    Request request = new Request.Builder().url(url).post(requestBody).build();
                     Response response = client.newCall(request).execute();
                     responseData = response.body().string();
                     System.out.println("delete is" + responseData);
@@ -316,32 +232,10 @@ public class ShowArticleActivity extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                onBackPressed();
+                Intent intent = new Intent(ShowArticleActivity.this,ImportantActivity.class);
+                startActivity(intent);
             }
         });
-    }
-
-    /**
-     * 根据用户存在sharedperferenced的ID以及这个文章的标题来更新文章所属的类别
-     *
-     */
-
-    private void updateTagBytitleAndTitle() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    OkHttpClient client = new OkHttpClient();
-                    RequestBody requestBody = new FormBody.Builder().add("id", String.valueOf(mid)).add("title", title).add("tag", newTag).build();
-                    Request request = new Request.Builder().url(Values.rootIP + "/updatetag").post(requestBody).build();
-                    Response response = client.newCall(request).execute();
-                    responseData = response.body().string();
-                    showresponse3();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
     }
 
     private void showresponse3() {

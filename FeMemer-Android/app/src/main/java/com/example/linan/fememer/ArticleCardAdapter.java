@@ -1,12 +1,9 @@
 package com.example.linan.fememer;
 
-import android.content.DialogInterface;
-import android.content.SharedPreferences;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.RecyclerView;
-
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.ContextThemeWrapper;
@@ -17,13 +14,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.net.URLEncoder;
 import java.util.List;
 
 import okhttp3.FormBody;
@@ -171,11 +167,14 @@ public class ArticleCardAdapter extends RecyclerView.Adapter<ArticleCardAdapter.
             try {
                 mid = mContext.getSharedPreferences("userINFO", MODE_PRIVATE).getInt("id", 1);
                 OkHttpClient client = new OkHttpClient();
+                title = URLEncoder.encode(title,"UTF-8");
                 RequestBody requestBody = new FormBody.Builder().add("id", String.valueOf(mid)).add("title", title).build();
-                Request request = new Request.Builder().url(Values.rootIP + "/getarticle").post(requestBody).build();
+                String url = Values.rootIP + "/getarticle";
+                Request request = new Request.Builder().url(url).post(requestBody).build();
                 Response response = client.newCall(request).execute();
                 String responseData = response.body().string();
                 Gson gson = new Gson();
+                //System.out.println(responseData);
                 articleINFO = gson.fromJson(responseData, ArticleINFO.class);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -199,12 +198,14 @@ public class ArticleCardAdapter extends RecyclerView.Adapter<ArticleCardAdapter.
         public void run() {
             try {
                 OkHttpClient client = new OkHttpClient();
+                title = URLEncoder.encode(title,"UTF-8");
                 RequestBody requestBody = new FormBody.Builder().add("id", String.valueOf(mid)).add("title", title).build();
-                Request request = new Request.Builder().url(Values.rootIP + "/getarticle").post(requestBody).build();
+                System.out.println(requestBody);
+                String url = Values.rootIP + "/deletearticle";
+                Request request = new Request.Builder().url(url).post(requestBody).build();
                 Response response = client.newCall(request).execute();
                 String responseData = response.body().string();
-                System.out.println(responseData);
-
+                //System.out.println("data is" + responseData);
             } catch (Exception e) {
                 e.printStackTrace();
             }

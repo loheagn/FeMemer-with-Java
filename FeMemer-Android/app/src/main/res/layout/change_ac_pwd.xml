@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content" android:layout_width="wrap_content"
+    android:background="#ffffffff" android:orientation="vertical"
+    android:id="@+id/dialog">
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/old_pwd_word" android:text="旧密码："
+        />
+    <EditText android:layout_height="wrap_content"
+        android:layout_width="match_parent" android:id="@+id/old_pwd"
+        android:inputType="textPassword"/>
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/newpwd1_word" android:text="新密码："
+        />
+    <EditText android:layout_height="wrap_content"
+        android:layout_width="match_parent" android:id="@+id/new_pwd1"
+        android:inputType="textPassword"/>
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/new_pwd2_word" android:text="重复密码："
+       />
+    <EditText android:layout_height="wrap_content"
+        android:layout_width="match_parent" android:id="@+id/new_pwd2"
+        android:inputType="textPassword"/>
+
+</LinearLayout>

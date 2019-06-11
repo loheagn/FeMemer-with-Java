@@ -4,38 +4,22 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.ActionBar;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.util.Patterns;
 import android.view.View;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.support.v7.widget.Toolbar;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
-import android.widget.SearchView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.UnsupportedEncodingException;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
@@ -67,22 +51,6 @@ public class AddArticleActivity extends AppCompatActivity {
         this.responseData = responseData;
     }
 
-    /**
-     * 判断传入的字符串是否是url
-     *
-     * @param s 传入的疑似url的字符串
-     * @return 检测到是url，返回真，否则返回假
-     */
-
-    private boolean isOK(String s) {
-        int len = s.length();
-        for (int i = 0; i < len; i++) {
-            char tmp = s.charAt(i);
-            if (tmp == '\r' || tmp == '\n' || tmp == '\t' || Character.isWhitespace(tmp))
-                return false;
-        }
-        return true;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +81,14 @@ public class AddArticleActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             editText.setText(content);
-            if (isOK(content)) {
+            Matcher matcher = Patterns.WEB_URL.matcher(content);
+            if (matcher.find()) {
+                //System.out.println(content);
+                System.out.println();
+                System.out.println();
+                System.out.println(matcher.group());
+                this.content = matcher.group();
+                content = this.content;
                 progressDialog = new ProgressDialog(AddArticleActivity.this);
                 progressDialog.setTitle("文章加载中...");
                 progressDialog.setMessage("Loading...");
@@ -137,15 +112,18 @@ public class AddArticleActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     AddArticleActivity.this.setContent(editText.getText().toString());
-                    editText.setText("");
-                    if (isOK(AddArticleActivity.this.getContent())) {
+                    Matcher matcher = Patterns.WEB_URL.matcher(AddArticleActivity.this.getContent());
+                    if(matcher.find()) {
+                        AddArticleActivity.this.setContent(matcher.group());
+                        editText.setText("");
                         progressDialog = new ProgressDialog(AddArticleActivity.this);
                         progressDialog.setTitle("文章加载中...");
                         progressDialog.setMessage("Loading...");
                         progressDialog.setCancelable(false);
                         progressDialog.show();
                         AddArticleByURLAndId();
-                    } else
+                    }
+                     else
                         Toast.makeText(AddArticleActivity.this, "不合法的URL", Toast.LENGTH_SHORT).show();
                 }
             });
@@ -156,6 +134,8 @@ public class AddArticleActivity extends AppCompatActivity {
      * 向服务器发送请求，以此用户的ID以及文章的标题来添加文章
      */
 
+
+
     private void AddArticleByURLAndId() {
         new Thread(new Runnable() {
             @Override
@@ -163,8 +143,10 @@ public class AddArticleActivity extends AppCompatActivity {
                 try {
                     Thread.sleep(2000);
                     OkHttpClient client = new OkHttpClient();
+                    content = URLEncoder.encode(content, "UTF-8");
                     RequestBody requestBody = new FormBody.Builder().add("id", String.valueOf(mid)).add("url", content).build();
-                    Request request = new Request.Builder().url(Values.rootIP + "/addarticle").post(requestBody).build();
+                    String url = Values.rootIP + "/addarticle";
+                    Request request = new Request.Builder().url(url).post(requestBody).build();
                     Response response = client.newCall(request).execute();
                     if (response.body() == null)
                         showresponse2();
@@ -193,7 +175,6 @@ public class AddArticleActivity extends AppCompatActivity {
             @Override
 
             public void run() {
-
                 Gson gson = new Gson();
                 final ArticleINFO articleINFO = gson.fromJson(responseData, ArticleINFO.class);
                 progressDialog.dismiss();

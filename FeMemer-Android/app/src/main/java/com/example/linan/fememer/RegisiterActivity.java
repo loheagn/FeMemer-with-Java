@@ -3,8 +3,9 @@ package com.example.linan.fememer;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Looper;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -16,8 +17,16 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.xujiaji.happybubble.BubbleDialog;
 
+import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class RegisiterActivity extends AppCompatActivity {
     private String responseData = "";
@@ -26,8 +35,18 @@ public class RegisiterActivity extends AppCompatActivity {
     private EditText email;
     private EditText passwordT;
     private EditText passwordTagain;
-    private Boolean canclick1 = false;
-    private Boolean canclick2 = false;
+    private Boolean canclick1 = false;  //Email是否合法
+    private Boolean canclick2 = false;  //密码是否一致
+    private Boolean canclick3 = false;  //密码是否是八到二十位字母和数字的组合
+
+
+    public Boolean getCanclick3() {
+        return canclick3;
+    }
+
+    public void setCanclick3(Boolean canclick3) {
+        this.canclick3 = canclick3;
+    }
 
     public Boolean getCanclick2() {
         return canclick2;
@@ -110,19 +129,30 @@ public class RegisiterActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         new check(RegisiterActivity.this).isright();
-                        if (canclick1 && canclick2)
-                            Toast.makeText(RegisiterActivity.this, "点击成功", Toast.LENGTH_SHORT).show();
-                        else if (canclick1 && !canclick2)
+                        if (canclick1 && canclick2 && canclick3) {
+                            RegisiterActivity regisiterActivity = RegisiterActivity.this;
+                            String email = regisiterActivity.getEmail().getText().toString();
+                            String password1 = regisiterActivity.getPasswordT().getText().toString();
+                            register(email, password1);
+                            System.out.println("dsfsafasfas");
+                        } else if (!canclick1)
                             new BubbleDialog(RegisiterActivity.this)
                                     .addContentView(LayoutInflater.from(RegisiterActivity.this).inflate(R.layout.activity_tips, null))
-                                    .setLayout(250, 220, 0)
+                                    .setLayout(250, 350, 0)
                                     .setClickedView(button2)
                                     .calBar(true)
                                     .show();
-                        else if (!canclick1 && !canclick2)
+                        else if (!canclick2)
                             new BubbleDialog(RegisiterActivity.this)
                                     .addContentView(LayoutInflater.from(RegisiterActivity.this).inflate(R.layout.activity_samepwd, null))
-                                    .setLayout(250, 220, 0)
+                                    .setLayout(250, 350, 0)
+                                    .setClickedView(button2)
+                                    .calBar(true)
+                                    .show();
+                        else if (!canclick3)
+                            new BubbleDialog(RegisiterActivity.this)
+                                    .addContentView(LayoutInflater.from(RegisiterActivity.this).inflate(R.layout.wrongpwdformat, null))
+                                    .setLayout(350, 350, 0)
                                     .setClickedView(button2)
                                     .calBar(true)
                                     .show();
@@ -130,42 +160,53 @@ public class RegisiterActivity extends AppCompatActivity {
                 }
         );
 
-        forgetpwd.setOnClickListener(
-                new View.OnClickListener() {
-                    /**
-                     * 找回密码的函数，输入您注册时绑定的邮箱，系统会自动生成一个随机密码到此邮箱作为新密码
-                     *
-                     * @param v 当前视图
-                     */
-                    @Override
-                    public void onClick(View v) {
-                        android.app.AlertDialog.Builder dialog = new android.app.AlertDialog.Builder(RegisiterActivity.this);
-                        final EditText editText = new EditText(RegisiterActivity.this);
-                        dialog.setTitle("请输入您绑定的邮箱");
-                        dialog.setView(editText);
-                        dialog.setCancelable(true);
-                        dialog.setPositiveButton("发送", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                String email = editText.getText().toString();
-                                try {
-                                    if (check.isEmail(email)) {
-                                        new Thread(new emailrequest(email)).start();
-                                        Toast.makeText(RegisiterActivity.this, "发送成功", Toast.LENGTH_SHORT).show();
-                                    } else
-                                        Toast.makeText(RegisiterActivity.this, "错误的邮箱格式", Toast.LENGTH_SHORT).show();
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        });
-                        dialog.show();
+
+    }
+
+
+
+
+
+    private void register(final String email, final String password) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    OkHttpClient client = new OkHttpClient();
+                    RequestBody requestBody = new FormBody.Builder().add("userName", email).add("password", password).build();
+                    String url = Values.rootIP + "/register";
+                    Request request = new Request.Builder().url(url).post(requestBody).build();
+                    Response response = client.newCall(request).execute();
+                    responseData = response.body().string();
+                    Gson gson = new Gson();
+                    final LoginReaponse loginReaponse = gson.fromJson(responseData, LoginReaponse.class);
+                    if (loginReaponse.getFlag().equals("ok")) {
+                        SharedPreferences.Editor editor = getSharedPreferences("userINFO", MODE_PRIVATE).edit();
+                        editor.putInt("userID", loginReaponse.id);
+                        editor.putString("userName", name);
+                        editor.putString("userPassword", passwod);
+                        editor.apply();
+                        Intent intent = new Intent(RegisiterActivity.this, ImportantActivity.class);
+                        startActivity(intent);
+                    } else if (loginReaponse.getFlag().equals("alreadyhave")) {
+                        Looper.prepare();
+                        Toast.makeText(RegisiterActivity.this, "已经有这个用户了", Toast.LENGTH_SHORT).show();
+                        Looper.loop();
+                    } else {
+                        Looper.prepare();
+                        Toast.makeText(RegisiterActivity.this, "错误", Toast.LENGTH_SHORT).show();
+                        Looper.loop();
                     }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-        );
+            }
+        }).start();
     }
 
 }
+
+
 
 
 class check {
@@ -177,7 +218,6 @@ class check {
 
     /**
      * 判断是否符合要求
-     *
      */
     public void isright() {
         String email = regisiterActivity.getEmail().getText().toString();
@@ -186,12 +226,19 @@ class check {
         if (!isEmail(email)) {
             regisiterActivity.setCanclick1(false);
         } else if (!same(password1, password2) || password1.isEmpty() || password2.isEmpty()) {
+            regisiterActivity.setCanclick1(true);
             regisiterActivity.setCanclick2(false);
         } else {
+            String check = "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z_]{8,20}$";
+            Pattern regex = Pattern.compile(check);
+            Matcher matcher = regex.matcher(password1);
             regisiterActivity.setCanclick1(true);
             regisiterActivity.setCanclick2(true);
+            if (matcher.matches())
+                regisiterActivity.setCanclick3(true);
+            else
+                regisiterActivity.setCanclick3(false);
         }
-
 
     }
 

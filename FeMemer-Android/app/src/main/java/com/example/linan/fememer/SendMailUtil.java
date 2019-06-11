@@ -1,9 +1,23 @@
 package com.example.linan.fememer;
 
+import android.widget.Toast;
+
 import java.util.Date;
 import java.util.Properties;
-import javax.mail.*;
-import javax.mail.internet.*;
+
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 
 public class SendMailUtil {
@@ -30,7 +44,7 @@ public class SendMailUtil {
      * @throws Exception
      */
 
-    public static void sendemail(String to) throws Exception {
+    public static void sendemail(String to, String newpwd) throws Exception {
         recipientAddress = to;
         Properties props = new Properties();
         props.setProperty("mail.smtp.auth", "true");
@@ -38,12 +52,14 @@ public class SendMailUtil {
         props.setProperty("mail.smtp.host", "smtp.163.com");
         Session session = Session.getInstance(props);
         session.setDebug(true);
-        Message msg = getMimeMessage(session);
+        Message msg = getMimeMessage(session,newpwd);
         Transport transport = session.getTransport();
         transport.connect(senderAccount, senderPassword);
         transport.sendMessage(msg,msg.getAllRecipients());
         transport.close();
+
     }
+
 
     /**
      * 获得创建一封邮件的实例对象
@@ -54,12 +70,12 @@ public class SendMailUtil {
      * @throws MessagingException 信息传输异常
      * @throws AddressException 地址异常
      */
-    public static MimeMessage getMimeMessage(Session session) throws Exception{
+    public static MimeMessage getMimeMessage(Session session,String newpwd) throws Exception{
         MimeMessage msg = new MimeMessage(session);
         msg.setFrom(new InternetAddress(senderAddress));
         msg.setRecipient(MimeMessage.RecipientType.TO,new InternetAddress(recipientAddress));
         msg.setSubject("密码找回","UTF-8");
-        msg.setContent("这是您的新密码，这次别忘啦" + getrandompwd(8), "text/html;charset=UTF-8");
+        msg.setContent("这是您的新密码，这次别忘啦" + newpwd, "text/html;charset=UTF-8");
         msg.setSentDate(new Date());
         return msg;
     }
@@ -88,13 +104,6 @@ public class SendMailUtil {
         return str;
     }
 
-    public static void main(String[] args) {
-        try {
-            sendemail("liuziming@buaa.edu.cn");
-        }catch (Exception e){
-            e.printStackTrace();
-        }
 
-    }
 
 }
