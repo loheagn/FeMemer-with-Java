@@ -10,15 +10,15 @@ public class ChromeHeadless {
     private String chromeDriverPath;
     private String chromePath;
     private WebDriver driver;
+    private ChromeOptions options;
 
     public ChromeHeadless() {
         setChromeDriverPath("/usr/local/bin/chromedriver");
         setChromePath("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome");
         System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-        ChromeOptions options = new ChromeOptions();
+        options = new ChromeOptions();
         options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200", "--ignore-certificate-errors");
         options.setBinary(chromePath);
-        driver = new ChromeDriver(options);
     }
 
     public ChromeHeadless(String chromeDriverPath, String chromePath) {
@@ -27,15 +27,19 @@ public class ChromeHeadless {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200", "--ignore-certificate-errors");
         options.setBinary(chromePath);
-        driver = new ChromeDriver(options);
     }
 
     public String getPageSource(String url) {
         try {
+            driver = new ChromeDriver(options);
             driver.get(url);
             return driver.getPageSource();
         } catch (Exception e) {
             return "抓取网页源代码错误！";
+        } finally {
+            if (driver != null) {
+                driver.close();
+            }
         }
     }
 
